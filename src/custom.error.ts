@@ -4,7 +4,7 @@
 export default class CustomError extends Error {
   statusCode: number;
 
-  constructor(statusCode: number, message: string) {
+  constructor(statusCode: number, message?: string) {
     // Pass remaining arguments (including vendor specific ones) to parent constructor
     super();
 

@@ -1,14 +1,19 @@
 {
   "name": "custom-error-service",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Error Service for handling HTTP Errors",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
-    "build": "tsc",
-    "lint": "tslint -c tslint.json -p tsconfig.json",
-    "lint:fix": "tslint --fix src/**/*.{ts,js}"
+    "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
+    "clean": "rimraf dist",
+    "copy": "copyfiles -u 1 \"dist/lib/*\" dist/package && copyfiles package.json LICENSE README.md CHANGELOG.MD dist/package",
+    "lint": "tslint --fix --format verbose --project tsconfig.json",
+    "lint:fix": "tslint --fix src/**/*.{ts,js}",
+    "package": "npm run build && npm run copy && npm run public && rimraf dist/lib",
+    "public": "json -I -f dist/package/package.json -e 'this.private=false'"
   },
   "husky": {
     "hooks": {
@@ -17,7 +22,10 @@
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
+    "copyfiles": "^2.2.0",
     "husky": "^4.2.5",
+    "json": "^9.0.6",
+    "rimraf": "^3.0.2",
     "tslint": "^6.1.1",
     "typescript": "^3.8.3"
   }
