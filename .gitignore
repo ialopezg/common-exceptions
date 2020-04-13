@@ -1,0 +1,24 @@
+###############################################
+# Business Management System - API (backend)
+###############################################
+
+### Jetbrain Software
+# IntelliJ IDEA
+.idea/
+dist/
+
+### Microsoft Software
+# Visual Studio Code
+.vscode/
+
+### Package Dependency Manager
+# NodeJS
+node_modules/
+package-lock.json
+
+# Yarn
+yarn.lock
+yarn-error.log
+
+#### Mac OSX project files
+.DS_Store
