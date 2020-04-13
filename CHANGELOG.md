@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Default CustomError
 - README.md file describing project
 - CHANGELOG.md file
 - Project initialization
