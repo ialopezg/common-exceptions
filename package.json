@@ -1,11 +1,10 @@
 {
-  "name": "error-service",
-  "version": "0.0.1",
+  "name": "custom-error-service",
+  "version": "0.0.2",
   "description": "Error Service for handling HTTP Errors",
   "main": "src/index.ts",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "tsc",
     "lint": "tslint -c tslint.json -p tsconfig.json",
