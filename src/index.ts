@@ -3,5 +3,8 @@ export { BadRequest } from './errors/BadRequest';
 export { CustomError } from './CustomError';
 export { Forbidden } from './Forbidden';
 export { NotFound } from './errors/NotFound';
+export { NotImplemented } from './errors/NotImplemented';
 export { RecordNotFound } from './errors/RecordNotFound';
+export { ServerError } from './errors/ServerError';
+export { ServiceUnavailable } from './errors/ServiceUnavailable';
 export { Unauthorized } from './errors/Unauthorized';
