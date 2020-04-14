@@ -27,15 +27,12 @@
 
 ## Installation
 
-1. Clone this repository or
+- Clone this repository or
 
-NPM
-`npm install --save custom-error-service`
+    ***NPM***: `npm install --save custom-error-service`
+    ***Yarn***: `yarn add custom-error-service`
 
-Yarn
-`yarn add custom-error-service`
-
-2. Install the dependencies by running `yarn` or `npm install`.
+- Install the dependencies by running `yarn` or `npm install`.
 
 Optionally, you can run: `yarn lint` or` npm run lint` to check dependency and coding errors.
 

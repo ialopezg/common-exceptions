@@ -1,7 +1,7 @@
 export { BadGateway } from './errors/BadGateway';
 export { BadRequest } from './errors/BadRequest';
 export { CustomError } from './CustomError';
-export { Forbidden } from './Forbidden';
+export { Forbidden } from './errors/Forbidden';
 export { NotFound } from './errors/NotFound';
 export { NotImplemented } from './errors/NotImplemented';
 export { RecordNotFound } from './errors/RecordNotFound';
