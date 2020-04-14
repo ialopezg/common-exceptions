@@ -9,8 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - BadGateway Error
+- Forbidden Error
+- NotImplemented Error
+- Server Error
+- ServiceUnavailable Error
+- Unauthorized Error
 
 ### Changed
+
 - Travis CI Support
 
 ## [0.0.3] - 2020-04-14

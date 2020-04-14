@@ -7,7 +7,7 @@ export class RecordNotFound extends NotFound {
   name = 'RecordNotFound';
 
   constructor(id: number | string, message?: string, detail?: string, errorType?: string) {
-    super(message || 'Not Found');
+    super(message || 'Record Not Found');
 
     // Error type
     this.errorType = errorType || `Database.${this.name}`;

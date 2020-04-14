@@ -1,7 +1,7 @@
 import { CustomError } from '../CustomError';
 
 /**
- * Bad Request Error. The request cannot be fulfilled due to bad syntax.
+ * BadRequest Error. The request cannot be fulfilled due to bad syntax.
  */
 export class BadRequest extends CustomError {
   name = 'BadRequest';
@@ -13,6 +13,6 @@ export class BadRequest extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The request could not be understood by the server due to malformed syntax.';
+    this.detail = detail || 'The request cannot be fulfilled due to bad syntax.';
   }
 }

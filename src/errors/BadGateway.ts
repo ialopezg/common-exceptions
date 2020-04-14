@@ -1,7 +1,7 @@
 import { CustomError } from '../CustomError';
 
 /**
- * Bad Gateway Error. The server, while acting as a gateway or proxy, received an invalid response.
+ * BadGateway Error. The server, while acting as a gateway or proxy, received an invalid response.
  */
 export class BadGateway extends CustomError {
   name = 'BadGateway';
