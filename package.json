@@ -16,7 +16,7 @@
     "public": "json -I -f dist/package/package.json -e 'this.private=false'",
     "preversion": "npm test",
     "version": "npm run build",
-    "postversion": "git push && git push --tags && rm -rf build/temp"
+    "postversion": "git push && git push --tags && rimraf dist/temp"
   },
   "husky": {
     "hooks": {
