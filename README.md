@@ -18,9 +18,8 @@
 
 ## Installation
 
-1. Clone this repository.
+1. Clone this repository or `yarn add custom-error-service`.
 2. Install the dependencies by running `yarn` or `npm install`.
-3. Start the project by running `yarn dev` or `npm run dev`.
 
 Optionally, you can run: `yarn lint` or` npm run lint` to check dependency and coding errors.
 

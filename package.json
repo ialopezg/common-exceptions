@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
     "clean": "rimraf dist",
-    "copy": "copyfiles -u 1 \"dist/lib/*\" dist/package && copyfiles package.json LICENSE README.md CHANGELOG.MD dist/package",
+    "copy": "copyfiles -u 1 \"dist/lib/**/*\" dist/package && copyfiles package.json LICENSE README.md CHANGELOG.MD dist/package",
     "lint": "tslint --fix --format verbose --project tsconfig.json",
     "lint:fix": "tslint --fix src/**/*.{ts,js}",
     "package": "npm run build && npm run copy && npm run public && rimraf dist/lib",
