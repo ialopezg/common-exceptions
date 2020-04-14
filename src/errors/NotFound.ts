@@ -6,9 +6,13 @@ import { CustomError } from '../CustomError';
 export class NotFound extends CustomError {
   name = 'NotFoundError';
 
-  constructor(message?: string) {
+  constructor(message?: string, detail?: string, errorType?: string) {
     super(404, message || 'Not found');
 
+    // Error type
+    this.errorType = errorType || `Application.${this.name}`;
+
+    // Additional error detail
     this.detail = 'The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.';
   }
 }

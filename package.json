@@ -1,6 +1,6 @@
 {
   "name": "custom-error-service",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Error Service for handling HTTP Errors",
   "main": "lib/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
@@ -15,7 +15,8 @@
     "package": "npm run build && npm run copy && npm run public && rimraf dist/lib",
     "public": "json -I -f dist/package/package.json -e 'this.private=false'",
     "preversion": "npm test",
-    "version": "npm run build"
+    "version": "npm run build",
+    "postversion": "git push && git push --tags && rimraf dist/temp"
   },
   "husky": {
     "hooks": {
