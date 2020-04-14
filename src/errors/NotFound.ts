@@ -12,6 +12,7 @@ export class NotFound extends CustomError {
     // Error type
     this.errorType = errorType || `Application.${this.name}`;
 
-    this.detail = detail || 'The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.';
+    // Additional error detail
+    this.detail = 'The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.';
   }
 }
