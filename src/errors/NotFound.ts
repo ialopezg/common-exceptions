@@ -1,14 +1,14 @@
 import { CustomError } from '../CustomError';
 
 /**
- * NotFound Error when a resource could not be localized.
+ * NotFound Error. The requested resource could not be found but may be available again in the future.
  */
 export class NotFound extends CustomError {
-  constructor(message?: string) {
-    super();
+  name = 'NotFoundError';
 
-    this.name = 'NotFoundError';
-    this.statusCode = 404;
-    this.message = message || 'Resource not found'
+  constructor(message?: string) {
+    super(404, message || 'Not found');
+
+    this.detail = 'The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.';
   }
 }
