@@ -10,7 +10,7 @@ export class RecordNotFound extends NotFound {
     super(message || 'Not Found');
 
     // Error type
-    this.errorType = errorType || 'Database.Entity.NotFound';
+    this.errorType = errorType || `Database.${this.name}`;
 
     // Additional error detail
     this.detail = detail || `Entity with id: ${id} couldn't be found.`;

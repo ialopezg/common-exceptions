@@ -10,7 +10,7 @@ export class NotFound extends CustomError {
     super(404, message || 'Not found');
 
     // Error type
-    this.errorType = errorType || 'Application.NotFound';
+    this.errorType = errorType || `Application.${this.name}`;
 
     this.detail = detail || 'The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.';
   }
