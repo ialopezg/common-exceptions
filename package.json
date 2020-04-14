@@ -1,12 +1,12 @@
 {
   "name": "custom-error-service",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Error Service for handling HTTP Errors",
   "main": "lib/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ialopezg/custom-error-service.git"
+    "type": "git",
+    "url": "https://github.com/ialopezg/custom-error-service.git"
   },
   "bugs": {
     "url": "https://github.com/ialopezg/custom-error-service/issues",
