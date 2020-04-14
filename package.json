@@ -4,6 +4,14 @@
   "description": "Error Service for handling HTTP Errors",
   "main": "lib/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ialopezg/custom-error-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ialopezg/custom-error-service/issues",
+    "email": "me@ialopezg.com"
+  },
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -18,6 +26,12 @@
     "version": "npm run build",
     "postversion": "git push && git push --tags && rimraf dist/temp"
   },
+  "keywords": [
+    "errors",
+    "middleware",
+    "api",
+    "rest"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"

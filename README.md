@@ -1,4 +1,13 @@
-# Error Service
+# Custom Error Service
+
+> <div align="center"><a href="https://www.paypal.me/isidrolopezg">Buy me a ☕️<br/><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate"></a></div>
+
+[![Build Status][travis-image]][travis-url]
+[![Build Status][travis-image-windows]][travis-url]
+[![Build Status][travis-image-osx]][travis-url]
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+
 > Error Service for Database and HTTP Request Errors handling for handling HTTP Errors in several scenarios.
 
 <p align="center">
@@ -21,10 +30,10 @@
 1. Clone this repository or
 
 NPM
->`npm install --save custom-error-service`
+`npm install --save custom-error-service`
 
 Yarn
->`yarn add custom-error-service`
+`yarn add custom-error-service`
 
 2. Install the dependencies by running `yarn` or `npm install`.
 
@@ -93,4 +102,13 @@ Parameters:
 
 ## License
 
-This project is under MIT license. Copyright ©  2019-2020 - [Isidro A. López G.](https://ialopezg.com).
+This project is under [MIT](LICENSE). Copyright ©  2019-2020 - [Isidro A. López G.](https://ialopezg.com).
+
+[npm-image]: https://img.shields.io/npm/v/custom-error-service.svg
+[npm-url]: https://npmjs.org/package/custom-error-service
+[downloads-image]: https://img.shields.io/npm/dm/custom-error-service.svg
+[downloads-url]: https://npmcharts.com/compare/express?minimal=true
+[travis-image]: https://img.shields.io/travis/ialopezg/custom-error-service/master.svg?label=linux
+[travis-image-osx]: https://img.shields.io/travis/ialopezg/custom-error-service/master.svg?label=osx
+[travis-image-windows]: https://img.shields.io/travis/ialopezg/custom-error-service/master.svg?label=windows
+[travis-url]: https://travis-ci.org/ialopezg/custom-error-service
