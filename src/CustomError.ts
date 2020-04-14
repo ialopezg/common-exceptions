@@ -6,15 +6,15 @@ export class CustomError extends Error {
   statusCode: number;
   errorType: string;
 
-  constructor(statusCode?: number, message?: string, detail?: string) {
+  constructor(statusCode?: number, message?: string, detail?: string, errorType?: string) {
     // Pass remaining arguments (including vendor specific ones) to parent constructor
     super();
 
     // Error name
-    this.name = CustomError.constructor.name;
+    this.name = "CustomError";
 
     // Error type
-    this.errorType = 'Application';
+    this.errorType = errorType || 'Application';
 
     // Message error
     this.message = message || 'Bad Request. Default Custom Error';
