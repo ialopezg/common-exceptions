@@ -24,3 +24,6 @@ yarn-error.log
 .DS_Store
 
 !src/types.ts
+
+### Generated versions
+versions/

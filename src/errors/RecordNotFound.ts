@@ -6,9 +6,13 @@ import {NotFound} from './NotFound';
 export class RecordNotFound extends NotFound {
   name = 'RecordNotFound';
 
-  constructor(id: number | string) {
+  constructor(id: number | string, detail?: string, errorType?: string) {
     super('Not Found');
 
-    this.detail = `Entity with id: ${id} couldn't be found.`;
+    // Error type
+    this.errorType = errorType || `Application.${this.name}`;
+
+    // Additional error detail
+    this.detail = detail || `Entity with id: ${id} couldn't be found.`;
   }
 }
