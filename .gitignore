@@ -4,17 +4,15 @@
 
 ### Jetbrain Software
 # IntelliJ IDEA
-.idea/
-dist/
-
-### Microsoft Software
-# Visual Studio Code
-.vscode/
+.idea
 
 ### Package Dependency Manager
 # NodeJS
 node_modules/
 package-lock.json
+
+# NPM Package
+dist
 
 # Yarn
 yarn.lock
@@ -25,6 +23,5 @@ yarn-error.log
 
 !src/types.ts
 
-=======
 ### Generated versions
 versions/
