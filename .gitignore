@@ -18,7 +18,7 @@ dist
 yarn.lock
 yarn-error.log
 
-#### Mac OSX project files
+### Mac OSX project files
 .DS_Store
 
 !src/types.ts
