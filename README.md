@@ -1,6 +1,7 @@
 # Custom Error Service
 
-> <div align="center"><a href="https://www.paypal.me/isidrolopezg">Buy me a ☕️<br/><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate"></a></div>
+> <div align="center">
+<a href="https://www.paypal.me/isidrolopezg">Buy me a ☕️<br/><img src="https://img.shields.io/badge/Donate-PayPal-green" alt="donate"></a>
 
 [![Build Status][travis-image]][travis-url]
 [![Build Status][travis-image-windows]][travis-url]
@@ -8,11 +9,14 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 
-> Error Service for Database and HTTP Request Errors handling for handling HTTP Errors in several scenarios.
+</div>
+
+> Custom Error Service, Modular Library used to fire errors and handle them, by properly response, while a request to API Rest or Database Server, and others scenarios.
 
 <p align="center">
 
 [**Contact the developer**](mailto:me@ialopezg.com)
+
 </p>
 
 ## Technology Stack
@@ -27,18 +31,23 @@
 
 ## Installation
 
-- Clone this repository or
+- You have three options to install this repository.
 
-    ***NPM***: `npm install --save custom-error-service`
-    ***Yarn***: `yarn add custom-error-service`
+  1. Clone this repository from GitHub
+     ```bash
+     git clone https://github.com/ialopezg/custom-error-service.git
+     ```
+  2. **NPM**: `npm install --save custom-error-service`
+  3. **Yarn**: `yarn add custom-error-service`
 
 - Install the dependencies by running `yarn` or `npm install`.
 
-Optionally, you can run: `yarn lint` or` npm run lint` to check dependency and coding errors.
+Optionally, you can run: `yarn lint` or`npm run lint` to check dependency and coding errors.
 
 ## Usage
 
 ### API Rest - App Entry Point
+
 ```javascript
 const express = require('express');
 const app = express();
@@ -49,7 +58,8 @@ app.use((error, request, response, next) => {
   }
 
   const status = error.statusCode || 500;
-  const message = error.message || "It's not you. It's us. We are having some problems.";
+  const message =
+    error.message || "It's not you. It's us. We are having some problems.";
   const detail = error.detail || '';
 
   response.status(status).json({
@@ -57,16 +67,19 @@ app.use((error, request, response, next) => {
     status: 'error',
     code: status,
     message,
-    detail
+    detail,
   });
 });
+
 // Not found middleware. Declared after generic error
-// middleware. This will allow use our custom middleware. 
+// middleware. This will allow use our custom middleware.
 app.use((request, response, next) => {
   response.status(404).send('Resource not found');
 });
 ```
+
 ### 400 Custom Errors
+
 ```javascript
 const CustomError = require('custom-error-service');
 
@@ -74,32 +87,60 @@ throw new CustomError.CustomError(statusCode, message, detail);
 ```
 
 Parameters:
-* **statusCode** [optional]: The HTTP Status code for response
-* **message** [optional]: The message of this error
-* **detail** [optional]: A detailed message of this error
+
+- **statusCode** [optional]: The HTTP Status code for response
+- **message** [optional]: The message of this error
+- **detail** [optional]: A detailed message of this error
 
 ### 400 Bad Request
+
 ```javacript
 throw new CustomError.BadRequest(message, detail);
 ```
 
+### 401 Unauthorized
+
+```javascript
+throw new CustomError.Unauthorized(message, detail);
+```
+
+Parameters:
+
+- **message** [optional]: The message of this error
+- **detail** [optional]: A detailed message of this error
+
 ### 404 Not Found
+
 ```javascript
 throw new CustomError.NotFound(message, detail);
 ```
 
 ### 404 Record or Entity Not Found
+
 ```javascript
 throw new CustomError.RecordNotFound(id, message, detail);
 ```
+
 Parameters:
-* **id** [optional]: Entity id requested
-* **message** [optional]: The message of this error
-* **detail** [optional]: A detailed message of this error
+
+- **id** [optional]: Entity id requested
+- **message** [optional]: The message of this error
+- **detail** [optional]: A detailed message of this error
+
+### 503 Service Unavailable
+
+```javascript
+throw new CustomError.ServiceUnavailable(message, detail);
+```
+
+Parameters:
+
+- **message** [optional]: The message of this error
+- **detail** [optional]: A detailed message of this error
 
 ## License
 
-This project is under [MIT](LICENSE). Copyright ©  2019-2020 - [Isidro A. López G.](https://ialopezg.com).
+This project is under [MIT](LICENSE). Copyright © 2019-2020 - [Isidro A. López G.](https://ialopezg.com)
 
 [npm-image]: https://img.shields.io/npm/v/custom-error-service.svg
 [npm-url]: https://npmjs.org/package/custom-error-service

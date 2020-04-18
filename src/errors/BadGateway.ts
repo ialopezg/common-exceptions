@@ -13,6 +13,8 @@ export class BadGateway extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The server was acting as a gateway or proxy and received an invalid.';
+    this.detail =
+      detail ||
+      'The server was acting as a gateway or proxy and received an invalid.';
   }
 }

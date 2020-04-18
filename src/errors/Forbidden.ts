@@ -13,6 +13,8 @@ export class Forbidden extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The server understood the request, but is refusing to fulfill it.';
+    this.detail =
+      detail ||
+      'The server understood the request, but is refusing to fulfill it.';
   }
 }

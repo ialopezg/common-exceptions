@@ -13,6 +13,8 @@ export class NotFound extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The requested resource could not be found but may be available again in the future.';
+    this.detail =
+      detail ||
+      'The requested resource could not be found but may be available again in the future.';
   }
 }

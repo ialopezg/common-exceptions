@@ -1,4 +1,4 @@
-import {NotFound} from './NotFound';
+import { NotFound } from './NotFound';
 
 /**
  * RecordNotFound Error. The requested entity could not be localized.
@@ -6,7 +6,12 @@ import {NotFound} from './NotFound';
 export class RecordNotFound extends NotFound {
   name = 'RecordNotFound';
 
-  constructor(id: number | string, message?: string, detail?: string, errorType?: string) {
+  constructor(
+    id: number | string,
+    message?: string,
+    detail?: string,
+    errorType?: string
+  ) {
     super(message || 'Record Not Found');
 
     // Error type

@@ -13,6 +13,8 @@ export class ServiceUnavailable extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.';
+    this.detail =
+      detail ||
+      'The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.';
   }
 }

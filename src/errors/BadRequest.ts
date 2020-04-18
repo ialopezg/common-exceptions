@@ -13,6 +13,7 @@ export class BadRequest extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The request cannot be fulfilled due to bad syntax.';
+    this.detail =
+      detail || 'The request cannot be fulfilled due to bad syntax.';
   }
 }

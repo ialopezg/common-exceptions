@@ -6,12 +6,17 @@ export class CustomError extends Error {
   statusCode: number;
   errorType: string;
 
-  constructor(statusCode?: number, message?: string, detail?: string, errorType?: string) {
+  constructor(
+    statusCode?: number,
+    message?: string,
+    detail?: string,
+    errorType?: string
+  ) {
     // Pass remaining arguments (including vendor specific ones) to parent constructor
     super();
 
     // Error name
-    this.name = "CustomError";
+    this.name = 'CustomError';
 
     // Error type
     this.errorType = errorType || 'Application';
@@ -23,6 +28,8 @@ export class CustomError extends Error {
     this.statusCode = statusCode || 400;
 
     // Additional error detail
-    this.detail = detail || 'The request could not be understood by the server due to malformed syntax.';
+    this.detail =
+      detail ||
+      'The request could not be understood by the server due to malformed syntax.';
   }
 }

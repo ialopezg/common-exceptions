@@ -13,6 +13,8 @@ export class ServerError extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The server encountered an unexpected condition which prevented it from fulfilling the request.';
+    this.detail =
+      detail ||
+      'The server encountered an unexpected condition which prevented it from fulfilling the request.';
   }
 }

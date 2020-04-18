@@ -13,6 +13,8 @@ export class NotImplemented extends CustomError {
     this.errorType = errorType || `Application.${this.name}`;
 
     // Additional error detail
-    this.detail = detail || 'The server does not support the functionality required to fulfill the request.';
+    this.detail =
+      detail ||
+      'The server does not support the functionality required to fulfill the request.';
   }
 }
