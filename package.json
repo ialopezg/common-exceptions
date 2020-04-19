@@ -1,6 +1,6 @@
 {
   "name": "custom-error-service",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Error Service for handling HTTP Errors",
   "main": "dist/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
@@ -64,5 +64,7 @@
     "tslint": "^6.1.1",
     "typescript": "^3.8.3"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }
