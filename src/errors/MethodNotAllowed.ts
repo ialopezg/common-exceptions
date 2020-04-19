@@ -10,9 +10,12 @@ export class MethodNotAllowed extends CustomError {
     message?: string,
     method?: string,
     namespace?: string,
-    detatil?: string
+    detatil?: string, errorType?: string
   ) {
     super(405, message || 'Method Not Allowed');
+
+    // Error type
+    this.errorType = errorType || `Application.${this.name}`;
 
     if (namespace) {
       method = `${namespace}/${method}`;

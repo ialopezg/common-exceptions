@@ -2,7 +2,7 @@
   "name": "custom-error-service",
   "version": "0.1.1",
   "description": "Error Service for handling HTTP Errors",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
   "repository": {
     "type": "git",
@@ -64,5 +64,5 @@
     "tslint": "^6.1.1",
     "typescript": "^3.8.3"
   },
-  "files": ["dist/lib"]
+  "files": ["dist"]
 }

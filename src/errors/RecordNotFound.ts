@@ -1,4 +1,4 @@
-import { NotFound } from './NotFound';
+import { NotFound } from '../errors/NotFound';
 
 /**
  * RecordNotFound Error. The requested entity could not be localized.
