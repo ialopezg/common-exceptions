@@ -13,7 +13,7 @@
     "email": "me@ialopezg.com"
   },
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "npm run clean",

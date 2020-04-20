@@ -34,11 +34,17 @@
 - You have three options to install this repository.
 
   1. Clone this repository from GitHub
-     ```bash
+     ```sh
      git clone https://github.com/ialopezg/custom-error-service.git
      ```
-  2. **NPM**: `npm install --save custom-error-service`
-  3. **Yarn**: `yarn add custom-error-service`
+  2. **NPM**: 
+      ```sh
+      npm install --save custom-error-service
+      ```
+  3. **Yarn**:
+      ```sh
+      yarn add custom-error-service
+     ```
 
 - Install the dependencies by running `yarn` or `npm install`.
 
