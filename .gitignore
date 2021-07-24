@@ -15,7 +15,6 @@ package-lock.json
 dist
 
 # Yarn
-yarn.lock
 yarn-error.log
 
 ### Mac OSX project files
