@@ -1,6 +1,6 @@
 {
   "name": "custom-error-service",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Error Service for handling HTTP Errors",
   "main": "dist/index.js",
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
@@ -23,7 +23,6 @@
     "lint:fix": "npm run lint -- --fix",
     "package": "npm run build && npm run copy && npm run public && rimraf dist/lib",
     "public": "json -I -f dist/package/package.json -e 'this.private=false'",
-    "preversion": "npm test",
     "version": "npm run build",
     "postversion": "git push && git push --tags && rimraf dist/temp"
   },
