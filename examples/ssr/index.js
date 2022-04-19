@@ -6,7 +6,7 @@ const errorService = require('custom-error-service');
 const app = express();
 const port = 3000;
 
-app.use((error, request, response, next) => {
+app.use((error, _request, response, next) => {
   if (response.headersSent) {
     return next(error);
   }
@@ -28,7 +28,7 @@ app.get('/custom-error', (request, response) => {
   const error = new errorService.CustomError(
     400,
     'Bad Request',
-    'Custom error service for request'
+    'Custom error service for request',
   );
 
   response.status(error.statusCode).json({

@@ -22,9 +22,20 @@ export default {
       format: 'cjs',
       sourcemap: true,
     },
-    //{ dir: outputDir, entryFileNames: `${filename}-[format].js`, format: 'es', sourcemap: true },
-    //{ dir: outputDir, entryFileNames: `${filename}-[format].js`, format: 'umd', sourcemap: true, name: 'CustomErrorService' },
-    //{ dir: outputDir, entryFileNames: `${filename}-[format].js`, format: 'iife', sourcemap: true, name: 'CustomErrorService' }
+    {
+      dir: outputDir,
+      entryFileNames: `${filename}.[format].js`,
+      format: 'es',
+      sourcemap: true,
+    },
+    {
+      dir: outputDir,
+      entryFileNames: `${filename}.[format].js`,
+      format: 'umd',
+      sourcemap: true,
+      name: 'CustomErrorService',
+    },
+    // { dir: outputDir, entryFileNames: `${filename}.[format].js`, format: 'iife', sourcemap: true, name: 'CustomErrorService' }
   ],
   external: [...Object.keys(pkg.dependencies || {})],
   plugins: [
