@@ -1,4 +1,4 @@
-import { CustomError } from '../../custom_error';
+import { CustomError } from '../custom_error';
 
 /**
  * Represents a error when the client must first be authenticated by a proxy (similar to a 401).

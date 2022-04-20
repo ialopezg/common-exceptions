@@ -1,4 +1,4 @@
-import { CustomError } from '../../custom_error';
+import { CustomError } from '../custom_error';
 
 /**
  * Represents a error when the server knows the request method, the method has been disabled and can not be used.

@@ -1,4 +1,4 @@
-import { CustomError } from '../../custom_error';
+import { CustomError } from '../custom_error';
 
 /**
  * Represents a error when the server when it does not find any content following the criteria given by the user agent.

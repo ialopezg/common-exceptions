@@ -1,4 +1,4 @@
-import { CustomError } from '../../custom_error';
+import { CustomError } from '../custom_error';
 
 /**
  * Represents a error when the server did not receive a complete request in the time that it prepared to wait.

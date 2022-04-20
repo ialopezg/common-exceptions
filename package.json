@@ -1,11 +1,11 @@
 {
   "name": "custom-error-service",
-  "version": "0.2.2",
-  "description": "Error Service for handling HTTP Errors",
+  "version": "0.2.4",
+  "description": "A toolset for NodeJS to handling Client and Server Side HTTP errors",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "browser": "dist/index.umd.js",
-  "sideEffect": false,
+  "sideEffects": false,
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
   "repository": {
     "type": "git",

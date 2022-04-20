@@ -1,10 +1,21 @@
 import { CustomError } from '../custom_error';
 
 /**
- * ServiceUnavailable Error: The server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded.
+ * Represents a error when the server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded.
+ * @class
+ *
+ * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
+ * @extends {CustomError}
+ * @license MIT
  */
 export class ServiceUnavailable extends CustomError {
-  constructor() {
+  /**
+   * Creates a ServiceUnavailable error.
+   * @constructor
+   *
+   * @param details Optional. Additional message details.
+   */
+  constructor(details?: string) {
     super({ statusCode: 503, message: 'Service Unavailable' });
 
     // Error name
@@ -13,6 +24,7 @@ export class ServiceUnavailable extends CustomError {
     this.errorType = `Server.${ServiceUnavailable.name}`;
     // Additional error detail
     this.details =
+      details ??
       'The server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded.';
   }
 }

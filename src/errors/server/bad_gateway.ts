@@ -1,10 +1,18 @@
 import { CustomError } from '../custom_error';
-import { ICustomError } from '../interfaces';
 
 /**
- * BadGateway Error: The server received an invalid response while working as a gateway to handle the response.
+ * Represents a error when the server received an invalid response while working as a gateway to handle the response.
+ * @class
+ *
+ * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
+ * @extends {CustomError}
+ * @license MIT
  */
 export class BadGateway extends CustomError {
+  /**
+   * Creates a BadGateway error.
+   * @constructor
+   */
   constructor() {
     super({
       statusCode: 502,

@@ -1,4 +1,4 @@
-import { CustomError } from '../../custom_error';
+import { CustomError } from '../custom_error';
 
 /**
  * Represents a error when the server either did not find a current representation for the requested resource or is trying to hide its existence from an unauthorized client.

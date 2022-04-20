@@ -1,4 +1,4 @@
-import { CustomError } from '../../custom_error';
+import { CustomError } from '../custom_error';
 
 /**
  * Represents a error when the server could not understand the request because of invalid syntax.
@@ -17,16 +17,20 @@ export class BadRequest extends CustomError {
   constructor(message?: string, details?: string) {
     super({
       statusCode: 400,
+      // Error name
+      // name: BadRequest.name,
       message: message ?? 'Bad Request',
+      // Error type
+      errorType: `Client.${BadRequest.name}`,
+      // Additional error detail
+      details:
+        details ??
+        'The server could not understand the request because of invalid syntax.',
     });
 
     // Error name
     this.name = BadRequest.name;
     // Error type
     this.errorType = `Client.${this.name}`;
-    // Additional error detail
-    this.details =
-      details ??
-      'The server could not understand the request because of invalid syntax.';
   }
 }

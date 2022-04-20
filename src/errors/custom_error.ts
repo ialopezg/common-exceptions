@@ -1,4 +1,4 @@
-import { ICustomError } from './interfaces';
+import { ICustomError } from '../interfaces';
 
 /**
  * Custom error for handling not recognized errors.
