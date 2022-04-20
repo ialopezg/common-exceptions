@@ -1,5 +1,5 @@
 {
-  "name": "@ialopezg/custom-error-service",
+  "name": "custom-error-service",
   "version": "0.2.5",
   "description": "A toolset for NodeJS to handling Client and Server Side HTTP errors",
   "main": "dist/index.js",
