@@ -1,12 +1,1 @@
-export { BadGateway } from './errors/BadGateway';
-export { BadRequest } from './errors/BadRequest';
-export { CustomError } from './CustomError';
-export { Forbidden } from './errors/Forbidden';
-export { MethodNotAllowed } from './errors/MethodNotAllowed';
-export { NotAcceptable } from './errors/NotAcceptable';
-export { NotFound } from './errors/NotFound';
-export { NotImplemented } from './errors/NotImplemented';
-export { RecordNotFound } from './errors/RecordNotFound';
-export { ServerError } from './errors/ServerError';
-export { ServiceUnavailable } from './errors/ServiceUnavailable';
-export { Unauthorized } from './errors/Unauthorized';
+export * from './errors';

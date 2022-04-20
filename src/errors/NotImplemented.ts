@@ -1,4 +1,4 @@
-import { CustomError } from '../CustomError';
+import { CustomError } from '../custom_error';
 
 /**
  * Not Implemented Error. The server does not support the functionality required to fulfill the request.
@@ -6,15 +6,18 @@ import { CustomError } from '../CustomError';
 export class NotImplemented extends CustomError {
   name = 'NotImplemented';
 
-  constructor(message?: string, detail?: string, errorType?: string) {
-    super(501, message || 'Not Implemented');
+  constructor(message?: string, details?: string) {
+    super({
+      statusCode: 501,
+      message: message || 'Not Implemented',
+      errorType: `Server.${NotImplemented.name}`,
+    });
 
-    // Error type
-    this.errorType = errorType || `Application.${this.name}`;
+    this.name = NotImplemented.name;
 
     // Additional error detail
-    this.detail =
-      detail ||
-      'The server does not support the functionality required to fulfill the request.';
+    this.details =
+      details ||
+      'The request can not be handled because it is not supported by the server.';
   }
 }

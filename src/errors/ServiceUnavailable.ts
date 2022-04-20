@@ -1,20 +1,18 @@
-import { CustomError } from '../CustomError';
+import { CustomError } from '../custom_error';
 
 /**
- * ServiceUnavailable Error. The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.
+ * ServiceUnavailable Error: The server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded.
  */
 export class ServiceUnavailable extends CustomError {
-  name = 'ServiceUnavailable';
+  constructor() {
+    super({ statusCode: 503, message: 'Service Unavailable' });
 
-  constructor(message?: string, detail?: string, errorType?: string) {
-    super(503, message || 'Service Unavailable');
-
+    // Error name
+    this.name = 'ServiceUnavailable';
     // Error type
-    this.errorType = errorType || `Application.${this.name}`;
-
+    this.errorType = `Server.${ServiceUnavailable.name}`;
     // Additional error detail
-    this.detail =
-      detail ||
-      'The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.';
+    this.details =
+      'The server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded.';
   }
 }

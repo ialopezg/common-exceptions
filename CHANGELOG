@@ -1,8 +1,15 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.2.1] - 2020-04-17
+
+### Features
+
+- Update dependencies and modules
 
 ## [0.2.0] - 2020-04-17
 
@@ -14,9 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changes
 
 - Build process updated
-    - Updated TSLint to ESLint for fixing errors while development
-    - Rollup implementation for build
-    - Terser for minify the output for package
+  - Updated TSLint to ESLint for fixing errors while development
+  - Rollup implementation for build
+  - Terser for minify the output for package
 
 ## [0.1.1] - 2020-04-14
 
@@ -47,7 +54,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - RecordNotFound: `this.errorType`, `this.detail`.
 - NotFound: `this.errorType`, `this.detail`.
 - CustomError: `this.errorType`, `this.detail`.
-
 
 ## [0.0.2] 2020-04-13
 

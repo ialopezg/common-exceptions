@@ -15,6 +15,7 @@ export default {
       entryFileNames: `${filename}.min.js`,
       format: 'cjs',
       sourcemap: true,
+      plugins: [terser()],
     },
     {
       dir: outputDir,
@@ -34,6 +35,7 @@ export default {
       format: 'umd',
       sourcemap: true,
       name: 'CustomErrorService',
+      plugins: [terser()],
     },
     // { dir: outputDir, entryFileNames: `${filename}.[format].js`, format: 'iife', sourcemap: true, name: 'CustomErrorService' }
   ],
@@ -42,6 +44,5 @@ export default {
     typescript({
       typescript: require('typescript'),
     }),
-    production && terser(),
   ],
 };

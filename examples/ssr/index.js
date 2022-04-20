@@ -1,7 +1,13 @@
 const express = require('express');
 
 // Custom error
-const errorService = require('custom-error-service');
+const {
+  BadRequest,
+  BadGateway,
+  CustomError,
+  Forbidden,
+  MethodNotAllowed,
+} = require('custom-error-service');
 
 const app = express();
 const port = 3000;
@@ -13,19 +19,20 @@ app.use((error, _request, response, next) => {
 
   const status = error.statusCode || 500;
   const message = error.message || 'Custom error sample.';
-  const detail = error.detail || '';
+  const details = error.detail || '';
+  console.log(error);
 
   response.status(status).json({
     success: false,
     status: 'error',
     code: status,
     message,
-    detail,
+    details,
   });
 });
 
-app.get('/custom-error', (request, response) => {
-  const error = new errorService.CustomError(
+app.get('/custom-error', (_request, response) => {
+  const error = new CustomError(
     400,
     'Bad Request',
     'Custom error service for request',
@@ -36,32 +43,32 @@ app.get('/custom-error', (request, response) => {
   });
 });
 
-app.get('/bad-gateway', (request, response) => {
-  const error = new errorService.BadRequest();
+app.get('/bad-gateway', (_request, response) => {
+  const error = new BadGateway();
 
   response.status(error.statusCode).json({
     error,
   });
 });
 
-app.get('/bad-request', (request, response) => {
-  const error = new errorService.BadRequest();
+app.get('/bad-request', (_request, response) => {
+  const error = new BadRequest();
 
   response.status(error.statusCode).json({
     error,
   });
 });
 
-app.get('/forbidden', (request, response) => {
-  const error = new errorService.Forbidden();
+app.get('/forbidden', (_request, response) => {
+  const error = new Forbidden();
 
   response.status(error.statusCode).json({
     error,
   });
 });
 
-app.get('/method-not-allowed', (request, response) => {
-  const error = new errorService.MethodNotAllowed();
+app.get('/method-not-allowed', (_request, response) => {
+  const error = new MethodNotAllowed();
 
   response.status(error.statusCode).json({
     error,

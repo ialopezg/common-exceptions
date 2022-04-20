@@ -1,20 +1,22 @@
-import { CustomError } from '../CustomError';
+import { CustomError } from '../custom_error';
+import { ICustomError } from '../interfaces';
 
 /**
- * BadGateway Error. The server, while acting as a gateway or proxy, received an invalid response.
+ * BadGateway Error: The server received an invalid response while working as a gateway to handle the response.
  */
 export class BadGateway extends CustomError {
-  name = 'BadGateway';
+  constructor() {
+    super({
+      statusCode: 502,
+      message: 'The web server reported a bad gateway error.',
+    });
 
-  constructor(message?: string, detail?: string, errorType?: string) {
-    super(502, message || 'Bad Gateway');
-
+    // Error name
+    this.name = BadGateway.name;
     // Error type
-    this.errorType = errorType || `Application.${this.name}`;
-
+    this.errorType = `Server.${this.name}`;
     // Additional error detail
-    this.detail =
-      detail ||
-      'The server was acting as a gateway or proxy and received an invalid.';
+    this.details =
+      'The server received an invalid response while working as a gateway to handle the response.';
   }
 }
