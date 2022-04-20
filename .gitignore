@@ -9,7 +9,6 @@
 ### Package Dependency Manager
 # NodeJS
 node_modules/
-package-lock.json
 
 # NPM Package
 dist
