@@ -16,8 +16,8 @@ export class InternalServerError extends CustomError {
    * @param message Optional. Message to be displayed.
    * @param details Optional. Additional message details.
    */
-  constructor() {
-    super({ statusCode: 500, message: 'Internal Server Error' });
+  constructor(message?: string, details?: string) {
+    super({ statusCode: 500, message: message ?? 'Internal Server Error' });
 
     // Error name
     this.name = InternalServerError.name;
@@ -25,6 +25,7 @@ export class InternalServerError extends CustomError {
     this.errorType = `Server.${this.name}`;
     // Additional error detail
     this.details =
+      details ??
       'The server has encountered a situation that it does not know how to handle.';
   }
 }

@@ -5,6 +5,8 @@ const helmet = require('helmet');
 const RateLimit = require('express-rate-limit');
 const compression = require('compression');
 const morgan = require('morgan');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 // Custom error
 const {
@@ -13,7 +15,9 @@ const {
   CustomError,
   Forbidden,
   MethodNotAllowed,
+  NotFound,
 } = require('custom-error-service');
+const functions = require('./routes');
 
 const app = express();
 const port = 3000;
@@ -36,25 +40,39 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 
-app.get('/custom-error', (_request, _response) => {
+app.get('/custom-error', () => {
   throw new CustomError('Custom Error');
 });
 
-app.get('/bad-request', (_request, _response) => {
+app.get('/bad-request', () => {
   throw new BadRequest();
 });
 
-app.get('/bad-gateway', (_request, _response) => {
+app.get('/not-found', () => {
+  throw new NotFound();
+});
+
+app.get('/bad-gateway', () => {
   throw new BadGateway();
 });
 
-app.get('/forbidden', (_request, _response) => {
+app.get('/forbidden', () => {
   throw new Forbidden();
 });
 
-app.get('/method-not-allowed', (_request, _response) => {
+app.get('/method-not-allowed', () => {
   throw new MethodNotAllowed();
 });
+
+routes(app);
+
+// Documentation
+const options = {
+  definition: {},
+  apis: ['./routes/'],
+};
+const specs = swaggerJsDoc(options);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Error handling
 app.use((error, _request, response, next) => {
@@ -73,6 +91,11 @@ app.use((error, _request, response, next) => {
     details: error.details ?? '',
   });
 });
+
+function routes(app) {
+  console.log(functions);
+  app.use('/auth', require('./routes/auth.route'));
+}
 
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
