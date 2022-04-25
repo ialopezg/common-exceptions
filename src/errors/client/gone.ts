@@ -17,7 +17,7 @@ export class Gone extends CustomError {
    * @param {[key: string]: any} details Optional. Additional message details.
    */
   constructor(message?: string, details?: { [key: string]: any }) {
-    super({ statusCode: 41o, message: message ?? 'Gone' });
+    super({ statusCode: 410, message: message ?? 'Gone' });
 
     // Error name
     this.name = Gone.name;
