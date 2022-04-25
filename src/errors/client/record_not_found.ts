@@ -14,16 +14,27 @@ export class RecordNotFound extends NotFound {
    * @constructor
    *
    * @param message Optional. Message to be displayed.
-   * @param details Optional. Additional message details.
+   * @param {[key: string]: any} details Optional. Additional message details.
    */
-  constructor(id: number | string, message?: string, details?: string) {
+  constructor(
+    id: number | string,
+    message?: string,
+    details?: { [key: string]: any },
+  ) {
     super(message ?? 'Record Not Found');
 
     // Error name
     this.name = RecordNotFound.name;
-    // Error type
-    this.errorType = `Client.Database.${this.name}`;
     // Additional error detail
-    this.details = details ?? `Entity with id: ${id} couldn't be found.`;
+    this.details = details ?? {
+      errors: [
+        {
+          value: this.statusCode,
+          msg: `Entity with id: ${id} couldn't be found.`,
+          param: null,
+          location: null,
+        },
+      ],
+    };
   }
 }

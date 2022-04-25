@@ -1,11 +1,30 @@
-export * from './bad_request';
-export * from './unauthorized';
-export * from './payment_required';
-export * from './forbidden';
-export * from './record_not_found';
-export * from './method_not_allowed';
-export * from './not_acceptable';
-export * from './not_found';
-export * from './proxy_authorization_required';
-export * from './request_timeout';
-export * from './conflict';
+export * from './bad_request'; // 400
+export * from './unauthorized'; // 401
+export * from './payment_required'; // 402
+export * from './forbidden'; // 403
+export * from './not_found'; // 404
+export * from './record_not_found'; // 404
+export * from './method_not_allowed'; // 405
+export * from './not_acceptable'; //406
+export * from './proxy_authorization_required'; // 407
+export * from './request_timeout'; // 408
+export * from './conflict'; // 409
+export * from './gone'; // 410
+export * from './length_required'; // 411
+export * from './precondition_failed'; // 412
+export * from './payload_too_large'; // 413
+export * from './uri_too_long'; // 414
+export * from './unsupported_media_type'; // 415
+export * from './range_not_satisfiable'; // 416
+export * from './expectation_failed'; // 417
+export * from './i_am_a_teapot'; // 418
+export * from './misdirected_request'; // 421
+export * from './unprocessable_entity'; // 422
+export * from './locked'; // 423
+export * from './failed_dependency'; // 424
+export * from './too_early'; // 425
+export * from './upgrade_required'; // 426
+export * from './precondition_required'; // 428
+export * from './too_many_requests'; // 429
+export * from './request_header_fields_too_large'; // 431
+export * from './unavailable_for_legal_reasons'; // 451

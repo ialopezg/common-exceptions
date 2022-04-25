@@ -1,37 +1,32 @@
 import { CustomError } from '../custom_error';
 
 /**
- * Represents a error when the server does not support the functionality required to fulfill the request.
+ * Represents a error when the target resource has been deleted and the condition seems to be permanent.
  * @class
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
  * @license MIT
  */
-export class NotImplemented extends CustomError {
+export class Gone extends CustomError {
   /**
-   * Creates a NotImplemented error.
+   * Creates a Gone error.
    * @constructor
    *
    * @param message Optional. Message to be displayed.
    * @param {[key: string]: any} details Optional. Additional message details.
    */
   constructor(message?: string, details?: { [key: string]: any }) {
-    super({
-      statusCode: 501,
-      message: message ?? 'Not Implemented',
-    });
+    super({ statusCode: 41o, message: message ?? 'Gone' });
 
     // Error name
-    this.name = NotImplemented.name;
-    // Error type
-    this.errorType = 'Server';
+    this.name = Gone.name;
     // Additional error detail
     this.details = details ?? {
       errors: [
         {
           value: this.statusCode,
-          msg: 'The request can not be handled because it is not supported by the server.',
+          msg: 'The target resource has been deleted and the condition seems to be permanent.',
           param: null,
           location: null,
         },

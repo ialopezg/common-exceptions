@@ -13,10 +13,10 @@ export class NotAcceptable extends CustomError {
    * Creates a NotAcceptable error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {[key: string]: any} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: string) {
+  constructor(message?: string, details?: { [key: string]: any }) {
     super({
       statusCode: 406,
       message: message ?? 'Not Acceptable',
@@ -24,11 +24,16 @@ export class NotAcceptable extends CustomError {
 
     // Error name
     this.name = NotAcceptable.name;
-    // Error type
-    this.errorType = `Client.${this.name}`;
-    // Additional error detail
-    this.details =
-      details ??
-      'The server when it does not find any content following the criteria given by the user agent.';
+    // Additional error details
+    this.details = details ?? {
+      errors: [
+        {
+          value: this.statusCode,
+          msg: 'The server when it does not find any content following the criteria given by the user agent.',
+          param: null,
+          location: null,
+        },
+      ],
+    };
   }
 }

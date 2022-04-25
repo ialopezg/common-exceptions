@@ -5,9 +5,44 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.6] - 2020-04-17
+## [0.2.9] - 2020-04-22
 
 ### Features
+
+- Added:
+  - 410 Gone
+  - 411 Length Required
+  - 412 Precondition Failed
+  - 413 Payload Too Large
+  - 414 URI Too Long
+  - 415 Unsupported Media Type
+  - 416 Range Not Satisfiable
+  - 417 Expectation Failed
+  - 418 I'm a Teapot
+  - 421 Misdirected Request
+  - 422 Unprocessable Entity
+  - 423 Locked
+  - 424 Failed Dependency ([WebDAV](https://en.wikipedia.org/wiki/WebDAV))
+  - 425 Too Early
+  - 426 Upgrade Required
+  - 428 Precondition Required
+  - 429 Too Many Requests
+  - 431 Request Header Fields Too Large
+  - 451 Unavailable For Legal Reasons
+
+### Changes
+
+- Details error as an object in all classes.
+- Error Type without error name path.
+- CustomError as an abstract class for all inherited children classes.
+- TypeError property now is inherited from CustomError abstract class for all client type errors.
+- MethodNotAllowed, NotImplemented classes normalized.
+
+### Bug Fixes
+
+- Mistyping Conflict class name
+
+## [0.2.8] - 2020-04-17
 
 ### Bug fixes
 

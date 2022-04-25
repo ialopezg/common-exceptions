@@ -5,8 +5,6 @@ import pkg from './package.json';
 const filename = pkg.main.replace('.js', '').replace('dist/', '');
 const outputDir = 'dist';
 
-const production = !process.env.ROLLUP_WATCH;
-
 export default {
   input: `src/${filename}.ts`,
   output: [
@@ -40,9 +38,5 @@ export default {
     // { dir: outputDir, entryFileNames: `${filename}.[format].js`, format: 'iife', sourcemap: true, name: 'CustomErrorService' }
   ],
   external: [...Object.keys(pkg.dependencies || {})],
-  plugins: [
-    typescript({
-      typescript: require('typescript'),
-    }),
-  ],
+  plugins: [typescript()],
 };

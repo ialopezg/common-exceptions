@@ -1,37 +1,32 @@
 import { CustomError } from '../custom_error';
 
 /**
- * Represents a error when the server does not support the functionality required to fulfill the request.
+ * Represents a error the server refuses to perform the given request using the current protocol, it might be willing to do so after the client has been upgraded to a different protocol.
  * @class
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
  * @license MIT
  */
-export class NotImplemented extends CustomError {
+export class UpgradeRequired extends CustomError {
   /**
-   * Creates a NotImplemented error.
+   * Creates a UpgradeRequired error.
    * @constructor
    *
    * @param message Optional. Message to be displayed.
    * @param {[key: string]: any} details Optional. Additional message details.
    */
   constructor(message?: string, details?: { [key: string]: any }) {
-    super({
-      statusCode: 501,
-      message: message ?? 'Not Implemented',
-    });
+    super({ statusCode: 426, message: message ?? 'Upgrade Required' });
 
     // Error name
-    this.name = NotImplemented.name;
-    // Error type
-    this.errorType = 'Server';
+    this.name = UpgradeRequired.name;
     // Additional error detail
     this.details = details ?? {
       errors: [
         {
           value: this.statusCode,
-          msg: 'The request can not be handled because it is not supported by the server.',
+          msg: 'The server refuses to perform the given request using the current protocol, it might be willing to do so after the client has been upgraded to a different protocol.',
           param: null,
           location: null,
         },

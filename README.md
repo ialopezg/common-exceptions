@@ -17,7 +17,9 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 [![All Contributors][contributors]][contributors-link]
 
-## Tools
+## Technology Stack
+
+##@ Tools
 
 ![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=plastic&logo=visual-studio-code)
 ![Shell](https://img.shields.io/badge/-Shell-blasck?style=plastic&logo=Shell)
@@ -27,39 +29,14 @@
 ![Node.JS](https://img.shields.io/badge/-Node.JS-black?style=plastic&logo=Node.js)
 ![Express.JS](https://img.shields.io/badge/-Express.JS-black?style=plastic&logo=Express)
 
-## Features ✨
+### Languages
 
-> Custom Error Service, Modular Library used to fire errors and handle them, by properly response, while a request to API Rest or Database Server, and others scenarios.
-> <br/>
+![TypeScript](https://img.shields.io/badge/-TypeScript-000000?style=flat&logo=typescript)
+![JavaScript](https://img.shields.io/badge/-JavaScript-000000?style=flat&logo=javascript)
 
-| Status Code | Name                                                                 | Description                                                                                                                                                                                                                                          | Error Type |
-| :---------- | :------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- |
-| 400         | [Bad Request](src/errors/client/bad_request.ts)                      | Represents a error when the server could not understand the request because of invalid syntax. [Example](#)                                                                                                                                          | Client     |
-| 401         | [Unauthorized](src/errors/client/unauthorized.ts)                    | Represents a error when the request has not been applied because the server requires user authentication. [Example](#)                                                                                                                               | Client     |
-| 402         | [Payment Required](src/errors/client/payment_required.ts)            | Represents a error when the request cannot be processed until the client makes a payment. [Example](#)                                                                                                                                               | Client     |
-| 403         | [Forbiden](src/errors/client/forbidden.ts)                           | Represents a error when the client request has been rejected because the client does not have rights to access the content. [Example](#)                                                                                                             | Client     |
-| 404         | [Not Found](src/errors/client/not_found.ts)                          | Represents a error when the server either did not find a current representation for the requested resource or is trying to hide its existence from an unauthorized client. [Example](#)                                                              | Client     |
-| 404         | [Record Not Found](src/errors/client/record_not_found.ts)            | Represents a error when the server either did not find a current representation for the requested database entity or is trying to hide its existence from an unauthorized client. [Example](#)                                                       | Client     |
-| 405         | [Method Not Allowed](src/errors/client/method_not_allowed.ts)        | Represents a error when the server knows the request method, the method has been disabled and can not be used. [Example](#)                                                                                                                          | Client     |
-| 406         | [Not Acceptable](src/errors/client/not_acceptable.ts)                | Represents a error when the server when it does not find any content following the criteria given by the user agent. [Example](#)                                                                                                                    | Client     |
-| 407         | [Proxy Authentication Required](src/errors/client/not_acceptable.ts) | Represents a error when the client must first be authenticated by a proxy (similar to a 401). <br/>This status is sent with a Proxy-Authenticate header that contains information on how to authorize correctly. [Example](#)                        | Client     |
-| 408         | [Request Timeout](src/errors/client/request_timeout.ts)              | The server did not receive a complete request in the time that it prepared to wait. [Example](#)                                                                                                                                                     | Client     |
-| 409         | [Conflict](src/errors/client/conflict.ts)                            | Represents a error when the request could not be fulfilled due to a conflict with the current state of the target resource and is used in situations where the user might be able to resubmit the request after resolving the conflict. [Example](#) | Client     |
-| 500         | [Internal Server Error](src/errors/server/internal_server_error.ts)  | Represents a error when the server has encountered a situation that it does not know how to handle. [Example](#)                                                                                                                                     | Server     |
-| 501         | [Not Implemented](src/errors/server/not_implemented.ts)              | Represents a error when the server does not support the functionality required to fulfill the request. [Example](#)                                                                                                                                  | Server     |
-| 502         | [Bad Gateway](src/errors/server/bad_gateway.ts)                      | Represents a error when the server received an invalid response while working as a gateway to handle the response. [Example](#)                                                                                                                      | Server     |
-| 503         | [Service Unavailable](src/errors/server/service_unavailable.ts)      | Represents a error when the server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded. [Example](#)                                                                  | Server     |
+## Documentation
 
-<p align="center">
-
-[**Contact the developer**](mailto:me@ialopezg.com)
-
-</p>
-
-## Technology Stack
-
-1. **[NodeJS](https://nodejs.org/en/)** with **[Express.js](http://expressjs.com/)** framework
-2. **[TypeScript](https://www.typescriptlang.org/)**
+- [English](docs/index.md) Documentation
 
 ## Requirements
 

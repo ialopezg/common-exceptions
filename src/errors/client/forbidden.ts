@@ -13,10 +13,10 @@ export class Forbidden extends CustomError {
    * Creates a Forbidden error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {[key: string]: any} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: string) {
+  constructor(message?: string, details?: { [key: string]: any }) {
     super({
       statusCode: 403,
       message: message ?? 'Forbidden',
@@ -24,11 +24,16 @@ export class Forbidden extends CustomError {
 
     // Error name
     this.name = Forbidden.name;
-    // Error type
-    this.errorType = `Client.${this.name}`;
-    // Additional error detail
-    this.details =
-      details ??
-      'The client request has been rejected because the client does not have rights to access the content.';
+    // Additional error details
+    this.details = details ?? {
+      errors: [
+        {
+          value: this.statusCode,
+          msg: 'The client request has been rejected because the client does not have rights to access the content.',
+          param: null,
+          location: null,
+        },
+      ],
+    };
   }
 }

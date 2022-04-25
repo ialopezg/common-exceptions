@@ -1,16 +1,16 @@
 import { CustomError } from '../custom_error';
 
 /**
- * Represents a error when the server does not support the functionality required to fulfill the request.
+ * Represents a error the server refuses to perform the given request using the current protocol, it might be willing to do so after the client has been upgraded to a different protocol.
  * @class
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
  * @license MIT
  */
-export class NotImplemented extends CustomError {
+export class UnavailableForLegalReasons extends CustomError {
   /**
-   * Creates a NotImplemented error.
+   * Creates a UnavailableForLegalReasons error.
    * @constructor
    *
    * @param message Optional. Message to be displayed.
@@ -18,20 +18,18 @@ export class NotImplemented extends CustomError {
    */
   constructor(message?: string, details?: { [key: string]: any }) {
     super({
-      statusCode: 501,
-      message: message ?? 'Not Implemented',
+      statusCode: 451,
+      message: message ?? 'UUnavailable For Legal Reasons',
     });
 
     // Error name
-    this.name = NotImplemented.name;
-    // Error type
-    this.errorType = 'Server';
+    this.name = UnavailableForLegalReasons.name;
     // Additional error detail
     this.details = details ?? {
       errors: [
         {
           value: this.statusCode,
-          msg: 'The request can not be handled because it is not supported by the server.',
+          msg: 'The server refuses to perform the given request using the current protocol, it might be willing to do so after the client has been upgraded to a different protocol.',
           param: null,
           location: null,
         },
