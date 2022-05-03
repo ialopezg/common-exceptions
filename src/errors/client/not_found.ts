@@ -16,14 +16,12 @@ export class NotFound extends CustomError {
    * @param {string} message Optional. Message to be displayed.
    * @param {[key: string]: any} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({
       statusCode: 404,
       message: message ?? 'Not found',
     });
 
-    // Error name
-    this.name = NotFound.name;
     // Additional error details
     this.details = details ?? {
       errors: [

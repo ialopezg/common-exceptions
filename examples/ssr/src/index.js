@@ -12,7 +12,9 @@ const swaggerUi = require('swagger-ui-express');
 const {
   BadRequest,
   BadGateway,
+  Conflict,
   CustomError,
+  ErrorType,
   Forbidden,
   MethodNotAllowed,
   NotFound,
@@ -46,6 +48,10 @@ app.get('/custom-error', () => {
 
 app.get('/bad-request', () => {
   throw new BadRequest();
+});
+
+app.get('/conflict', () => {
+  throw new Conflict();
 });
 
 app.get('/not-found', () => {
@@ -87,7 +93,7 @@ app.use((error, _request, response, next) => {
     message: error.message ?? 'Custom error sample.',
     errorCode: status,
     errorName: error.name,
-    errorType: error.errorType,
+    errorType: ErrorType[error.errorType],
     details: error.details ?? '',
   });
 });

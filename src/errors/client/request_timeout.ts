@@ -13,16 +13,12 @@ export class RequestTimeout extends CustomError {
    * Creates a RequestTimeout error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 408, message: message ?? 'Request Timeout' });
 
-    // Error name
-    this.name = RequestTimeout.name;
-    // Error type
-    this.errorType = `Client.${this.name}`;
     // Additional error detail
     this.details = details ?? {
       errors: [

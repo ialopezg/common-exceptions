@@ -13,14 +13,12 @@ export class UnsupportedMediaType extends CustomError {
    * Creates a UnsupportedMediaType error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 415, message: message ?? 'Unsupported Media Type' });
 
-    // Error name
-    this.name = UnsupportedMediaType.name;
     // Additional error detail
     this.details = details ?? {
       errors: [

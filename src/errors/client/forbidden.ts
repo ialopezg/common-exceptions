@@ -16,14 +16,12 @@ export class Forbidden extends CustomError {
    * @param {string} message Optional. Message to be displayed.
    * @param {[key: string]: any} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({
       statusCode: 403,
       message: message ?? 'Forbidden',
     });
 
-    // Error name
-    this.name = Forbidden.name;
     // Additional error details
     this.details = details ?? {
       errors: [

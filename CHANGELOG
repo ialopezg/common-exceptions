@@ -5,7 +5,29 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.9] - 2020-04-22
+## [0.3.0] - 2020-05-03
+
+### Features
+
+- CustomErrorDetail interface
+- CustomErrorType as a type for all classes.
+- Wheter if error is public
+- Whether if error will stop the application.
+- 504 Gateway Timeout error
+- 505 HTTP Version Not Supported error
+- 506 Variant Also Negotiates error
+- 507 Insufficient Storage error
+- 508 Loop Detected error
+- 510 Not Extended error
+- 511 Network Authentication Required error
+
+### Bug Fixes
+
+- Clean code. Class error name is taken from the initial value in CustomError abstract class.
+- Parameters definition.
+- Typo in UnavailableForLegalReasons.
+
+## [0.2.10] - 2020-04-22
 
 ### Bug Fixes
 

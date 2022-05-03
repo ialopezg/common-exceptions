@@ -13,14 +13,12 @@ export class ExpectationFailed extends CustomError {
    * Creates a ExpectationFailed error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 417, message: message ?? 'Expectation Failed' });
 
-    // Error name
-    this.name = ExpectationFailed.name;
     // Additional error detail
     this.details = details ?? {
       errors: [

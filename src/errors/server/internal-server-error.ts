@@ -1,3 +1,5 @@
+import { CustomErrorType } from '../../enums';
+import { CustomErrorDetail } from '../../interfaces';
 import { CustomError } from '../custom_error';
 
 /**
@@ -13,24 +15,23 @@ export class InternalServerError extends CustomError {
    * Creates a InternalServerError error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {CustomErrorDetail|object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(
+    message?: string,
+    details?: CustomErrorDetail | { [key: string]: any } | string,
+  ) {
     super({ statusCode: 500, message: message ?? 'Internal Server Error' });
 
-    // Error name
-    this.name = InternalServerError.name;
     // Error type
-    this.errorType = 'Server';
+    this.errorType = CustomErrorType.Server;
     // Additional error detail
     this.details = details ?? {
       errors: [
         {
           value: this.statusCode,
           msg: 'The server has encountered a situation that it does not know how to handle.',
-          param: null,
-          location: null,
         },
       ],
     };

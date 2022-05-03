@@ -17,16 +17,14 @@ export class ProxyAuthenticationRequired extends CustomError {
    * @constructor
    *
    * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({
       statusCode: 407,
       message: message ?? 'Proxy Authentication Required',
     });
 
-    // Error name
-    this.name = ProxyAuthenticationRequired.name;
     // Additional error details
     this.details = details ?? {
       errors: [

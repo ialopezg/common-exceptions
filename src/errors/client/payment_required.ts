@@ -14,16 +14,11 @@ export class PaymentRequired extends CustomError {
    * @constructor
    *
    * @param {string} message Optional. Message to be displayed.
-    @param {[key: string]: any} details Optional. Additional message details.
+    @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
-    super({
-      statusCode: 402,
-      message: message ?? 'Payment Required',
-    });
+  constructor(message?: string, details?: { [key: string]: any } | string) {
+    super({ statusCode: 402, message: message ?? 'Payment Required' });
 
-    // Error name
-    this.name = PaymentRequired.name;
     // Additional error details
     this.details = details ?? {
       errors: [

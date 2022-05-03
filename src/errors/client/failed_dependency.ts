@@ -13,14 +13,12 @@ export class FailedDependency extends CustomError {
    * Creates a FailedDependency error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 424, message: message ?? 'Failed Dependency' });
 
-    // Error name
-    this.name = FailedDependency.name;
     // Additional error detail
     this.details = details ?? {
       errors: [

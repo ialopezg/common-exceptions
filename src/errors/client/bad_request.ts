@@ -14,17 +14,15 @@ export class BadRequest extends CustomError {
    * @constructor
    *
    * @param {string} message Optional. A custom message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({
       statusCode: 400,
       // name: BadRequest.name,
       message: message ?? 'Bad Request',
     });
 
-    // Error name
-    this.name = BadRequest.name;
     // Additional error details
     this.details = details ?? {
       errors: [

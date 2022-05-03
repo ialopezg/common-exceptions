@@ -1,3 +1,5 @@
+import { CustomErrorType } from '../../enums';
+import { CustomErrorDetail } from '../../interfaces';
 import { CustomError } from '../custom_error';
 
 /**
@@ -8,32 +10,28 @@ import { CustomError } from '../custom_error';
  * @extends {CustomError}
  * @license MIT
  */
-export class BadGateway extends CustomError {
+export class GatewayTimeout extends CustomError {
   /**
-   * Creates a BadGateway error.
+   * Creates a GatewayTimeout error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {CustomErrorDetail|object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
-    super({
-      statusCode: 502,
-      message: message ?? 'The web server reported a bad gateway error.',
-    });
+  constructor(
+    message?: string,
+    details?: CustomErrorDetail | { [key: string]: any } | string,
+  ) {
+    super({ statusCode: 502, message: message ?? 'Gateway Timeout' });
 
-    // Error name
-    this.name = BadGateway.name;
     // Error type
-    this.errorType = 'Server';
+    this.errorType = CustomErrorType.Server;
     // Additional error detail
     this.details = details ?? {
       errors: [
         {
           value: this.statusCode,
           msg: 'The server received an invalid response while working as a gateway to handle the response.',
-          param: null,
-          location: null,
         },
       ],
     };

@@ -13,14 +13,12 @@ export class PreconditionFailed extends CustomError {
    * Creates a Unauthorized error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 412, message: message ?? 'Precondition Failed' });
 
-    // Error name
-    this.name = PreconditionFailed.name;
     // Additional error detail
     this.details = details ?? {
       errors: [

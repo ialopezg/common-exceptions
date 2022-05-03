@@ -19,7 +19,7 @@
 
 ## Technology Stack
 
-##@ Tools
+### Tools
 
 ![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=plastic&logo=visual-studio-code)
 ![Shell](https://img.shields.io/badge/-Shell-blasck?style=plastic&logo=Shell)
@@ -36,127 +36,44 @@
 
 ## Documentation
 
-- [English](docs/index.md) Documentation
+- [English](docs/index.md) Documentation and examples.
 
-## Requirements
+## Getting started
 
-- **yarn** v1.17+
-- **NodeJS** v8+
+### Requirements
 
-## Installation
+- `npm v6+` or `yarn v1.17+`
+- `NodeJS v8+`
 
-- You have three options to install this repository.
+### Installation
 
-  1. Clone this repository from GitHub
-     ```sh
-     git clone https://github.com/ialopezg/custom-error-service.git
-     ```
-  2. **NPM**:
-     ```sh
-     npm install --save custom-error-service
-     ```
-  3. **Yarn**:
-     ```sh
-     yarn add custom-error-service
-     ```
+You have two options to install this repository.
 
-- Install the dependencies by running `yarn` or `npm install`.
+1. By adding the dependency to your `package.json` file.
 
-Optionally, you can run: `yarn lint` or`npm run lint` to check dependency and coding errors.
+   ```json
+   {
+     "dependencies": {
+       "custom-error-service": "^0.3.0"
+     }
+   }
+   ```
 
-## Usage
+   ```bash
+   # Install dependencies
+   # NPM
+   npm install
+   # or Yarn
+   yarn
+   ```
 
-### API Rest - App Entry Point
-
-```javascript
-const express = require('express');
-const app = express();
-
-app.use((error, request, response, next) => {
-  if (response.headersSent) {
-    return next(error);
-  }
-
-  const status = error.statusCode || 500;
-  const message =
-    error.message || "It's not you. It's us. We are having some problems.";
-  const detail = error.detail || '';
-
-  response.status(status).json({
-    success: false,
-    status: 'error',
-    code: status,
-    message,
-    detail,
-  });
-});
-
-// Not found middleware. Declared after generic error
-// middleware. This will allow use our custom middleware.
-app.use((request, response, next) => {
-  response.status(404).send('Resource not found');
-});
-```
-
-### 400 Custom Errors
-
-```javascript
-const { CustomError } = require('custom-error-service');
-
-throw new CustomError(statusCode, message, detail);
-```
-
-Parameters:
-
-- **statusCode** [optional]: The HTTP Status code for response. Default value: 400
-- **message** [optional]: The message of this error
-- **detail** [optional]: A detailed message of this error
-
-### 400 Bad Request
-
-```javacript
-throw new BadRequest(message, detail);
-```
-
-### 401 Unauthorized
-
-```javascript
-throw new Unauthorized(message, detail);
-```
-
-Parameters:
-
-- **message** [optional]: The message of this error
-- **detail** [optional]: A detailed message of this error
-
-### 404 Not Found
-
-```javascript
-throw new NotFound(message, detail);
-```
-
-### 404 Record or Entity Not Found
-
-```javascript
-throw new RecordNotFound(id, message, detail);
-```
-
-Parameters:
-
-- **id** [optional]: Entity id requested
-- **message** [optional]: The message of this error
-- **detail** [optional]: A detailed message of this error
-
-### 503 Service Unavailable
-
-```javascript
-throw new ServiceUnavailable(message, detail);
-```
-
-Parameters:
-
-- **message** [optional]: The message of this error
-- **detail** [optional]: A detailed message of this error
+2. By using a package manager
+   ```bash
+   # NPM
+   npm install --save custom-error-service
+   # or Yarn
+   yarn add custom-error-service
+   ```
 
 ## Contributors ✨
 

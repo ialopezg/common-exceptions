@@ -1,3 +1,4 @@
+import { CustomErrorType } from '../enums';
 import { ICustomError } from '../interfaces';
 
 /**
@@ -9,9 +10,11 @@ import { ICustomError } from '../interfaces';
  * @license MIT
  */
 export abstract class CustomError extends Error {
-  details: { [key: string]: any };
+  details?: { [key: string]: any } | string;
   statusCode: number;
-  errorType: string;
+  errorType: CustomErrorType;
+  isPublic?: boolean;
+  isOperational: boolean = true;
 
   /**
    * Creates a Conflict error.
@@ -20,28 +23,26 @@ export abstract class CustomError extends Error {
    * @param {ICustomError} error Optional. Error details.
    */
   constructor(error: ICustomError) {
-    // Pass remaining arguments (including vendor specific ones) to parent constructor
-    super();
+    // Pass message argument to parent constructor
+    super(error.message);
 
     // Error status code
     this.statusCode = error.statusCode ?? 400;
     // Error name
-    this.name = CustomError.name;
+    this.name = this.constructor.name;
     // Message error
     this.message = error.message ?? 'Custom Error (Bad Request)';
+    // Whether if error will be displayed in production mode
+    this.isPublic = error.isPublic ?? true;
     // Error type
-    this.errorType = error.errorType ?? 'Client';
+    this.errorType = error.errorType ?? CustomErrorType.Client;
+    // Whether error will stop the application
+    this.isOperational =
+      error.isOperational || this.errorType === CustomErrorType.Client;
     // Additional error detail
-    this.details = error.details ?? {
-      errors: [
-        {
-          value: this.statusCode,
-          msg: 'The request could not be understood by the server due to malformed syntax.',
-          param: null,
-          location: null,
-        },
-      ],
-    };
+    this.details = error.details;
+    // Error stack
+    this.stack = error.stack;
   }
 
   public toString = (): string => {

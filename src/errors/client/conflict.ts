@@ -16,11 +16,9 @@ export class Conflict extends CustomError {
    * @param {string} message Optional. Message to be displayed.
    * @param {[key: string]: any} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 409, message: message ?? 'Conflict' });
 
-    // Error name
-    this.name = Conflict.name;
     // Additional error details
     this.details = details ?? {
       errors: [

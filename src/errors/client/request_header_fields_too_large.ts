@@ -13,19 +13,15 @@ export class RequestHeaderFieldsTooLarge extends CustomError {
    * Creates a RequestHeaderFieldsTooLarge error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({
       statusCode: 431,
       message: message ?? 'Request Header Fields Too Large',
     });
 
-    // Error name
-    this.name = RequestHeaderFieldsTooLarge.name;
-    // Error type
-    this.errorType = `Client.${this.name}`;
     // Additional error detail
     this.details = details ?? {
       errors: [

@@ -14,13 +14,11 @@ export class PayloadTooLarge extends CustomError {
    * @constructor
    *
    * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 413, message: message ?? 'Payload Too Large' });
 
-    // Error name
-    this.name = PayloadTooLarge.name;
     // Additional error detail
     this.details = details ?? {
       errors: [

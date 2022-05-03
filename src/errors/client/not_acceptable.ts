@@ -14,16 +14,14 @@ export class NotAcceptable extends CustomError {
    * @constructor
    *
    * @param {string} message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({
       statusCode: 406,
       message: message ?? 'Not Acceptable',
     });
 
-    // Error name
-    this.name = NotAcceptable.name;
     // Additional error details
     this.details = details ?? {
       errors: [

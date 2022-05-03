@@ -13,14 +13,12 @@ export class UriTooLong extends CustomError {
    * Creates a UriTooLong error.
    * @constructor
    *
-   * @param message Optional. Message to be displayed.
-   * @param {[key: string]: any} details Optional. Additional message details.
+   * @param {string} message Optional. Message to be displayed.
+   * @param {object|string} details Optional. Additional message details.
    */
-  constructor(message?: string, details?: { [key: string]: any }) {
+  constructor(message?: string, details?: { [key: string]: any } | string) {
     super({ statusCode: 414, message: message ?? 'URI Too Long' });
 
-    // Error name
-    this.name = UriTooLong.name;
     // Additional error detail
     this.details = details ?? {
       errors: [
