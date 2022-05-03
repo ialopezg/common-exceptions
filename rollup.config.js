@@ -2,8 +2,8 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const filename = pkg.main.replace('.js', '').replace('dist/', '');
-const outputDir = 'dist';
+const filename = pkg.main.replace('.js', '').replace('lib/', '');
+const outputDir = 'lib';
 
 export default {
   input: `src/${filename}.ts`,

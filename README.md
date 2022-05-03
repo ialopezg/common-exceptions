@@ -6,10 +6,6 @@
 </div>
 <br />
 
-<div align="center">
-  <a href="https://www.paypal.me/isidrolopezg">Buy me a ☕️<br/><img src="https://img.shields.io/badge/Donate-PayPal-green" alt="donate"></a>
-</div>
-
 [![Build Status][travis-image]][travis-url]
 [![Build Status][travis-image-windows]][travis-url]
 [![Build Status][travis-image-osx]][travis-url]

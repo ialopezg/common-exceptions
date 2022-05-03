@@ -1,10 +1,10 @@
 {
   "name": "custom-error-service",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A toolset for NodeJS to handling Client and Server Side HTTP errors",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "browser": "dist/index.umd.js",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "browser": "lib/index.umd.js",
   "sideEffects": false,
   "author": "Isidro A. Lopez G. <me@ialopezg.com>",
   "repository": {
@@ -16,18 +16,18 @@
     "email": "me@ialopezg.com"
   },
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "echo Using TypeScript && rollup -c",
-    "copy": "copyfiles -u 1 \"dist/lib/**/*\" dist/package && copyfiles package.json LICENSE README.md CHANGELOG.MD dist/package",
+    "copy": "copyfiles package.json LICENSE README.md CHANGELOG.MD lib",
     "lint": "eslint 'src/**/*.ts' --ignore-path .gitignore",
     "lint:fix": "npm run lint --fix",
-    "package": "npm run build && npm run copy && npm run public && rimraf dist/lib",
-    "public": "json -I -f dist/package/package.json -e 'this.private=false'",
+    "package": "npm run build && npm run copy && npm run public",
+    "public": "json -I -f lib/package.json -e 'this.private=false'",
     "version": "npm run build",
-    "postversion": "git push origin HEAD && git push --tags && rimraf dist/temp"
+    "postversion": "git push origin HEAD && git push --tags && rimraf lib/temp"
   },
   "keywords": [
     "errors",
@@ -47,7 +47,7 @@
     ]
   },
   "dependencies": {
-    "express-validator": "^6.14.0"
+    "json": "^11.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
@@ -68,7 +68,7 @@
     "typescript": "^4.6.3"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "engines": {
     "node": ">=8"

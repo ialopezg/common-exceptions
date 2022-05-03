@@ -14,7 +14,7 @@ const {
   BadGateway,
   Conflict,
   CustomError,
-  ErrorType,
+  CustomErrorType,
   Forbidden,
   MethodNotAllowed,
   NotFound,
@@ -93,7 +93,7 @@ app.use((error, _request, response, next) => {
     message: error.message ?? 'Custom error sample.',
     errorCode: status,
     errorName: error.name,
-    errorType: ErrorType[error.errorType],
+    errorType: CustomErrorType[error.errorType],
     details: error.details ?? '',
   });
 });

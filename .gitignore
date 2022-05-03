@@ -12,6 +12,7 @@ node_modules/
 
 # NPM Package
 dist
+lib
 
 # Yarn
 yarn-error.log
