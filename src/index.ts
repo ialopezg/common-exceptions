@@ -1,3 +1,9 @@
-export * from './enums';
-export * from './errors';
-export * from './interfaces';
+/**
+ * Custom Error Service
+ *
+ * Copyright 1995-present Isidro A. Lopez G.
+ * https://ialopezg.com
+ * MIT License
+ */
+
+export * from './common';
