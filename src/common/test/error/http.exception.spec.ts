@@ -5,6 +5,7 @@ import {
   RuntimeException,
 } from '../../errors';
 import { expect } from 'chai';
+import { HttpStatus } from '../../enums';
 
 describe('Errors', () => {
   it('should be an instance of InternalServerErrorException', () => {
@@ -16,6 +17,7 @@ describe('Errors', () => {
     expect(error).to.be.instanceOf(CustomError);
     expect(error).to.be.instanceOf(InternalServerErrorException);
     expect(error).to.have.property('status');
+    expect(error.getStatus()).to.equal(HttpStatus.INTERNAL_SERVER_ERROR);
     expect(message).to.equal('Internal Server Error');
   });
 });
