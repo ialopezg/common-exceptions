@@ -1,5 +1,5 @@
-const { Router, json } = require('express');
-const { BadRequest } = require('custom-error-service');
+const { Router } = require('express');
+const { BadRequestException, PreconditionFailedException } = require('custom-error-service');
 
 const router = Router();
 
@@ -8,17 +8,17 @@ router.post('/login', (request, response) => {
 
   // No data sent
   if (!email || !password) {
-    throw new BadRequest(
+    throw new PreconditionFailedException(
       'Error al inciar la sesion',
-      'El nombre de usuario o contraseña son inválidos',
+      { details: { message: 'El nombre de usuario o contraseña son inválidos', path: 'login' } },
     );
   }
 
   // Invalid data
   if (email !== 'john.doe@example.site' || password !== 'password') {
-    throw new BadRequest(
+    throw new BadRequestException(
       'Error al inciar la sesion',
-      'El nombre de usuario o contraseña son inválidos',
+      { details: { message: 'El nombre de usuario o contraseña son inválidos', path: 'login' } },
     );
   }
 

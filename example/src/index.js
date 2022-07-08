@@ -86,12 +86,11 @@ app.use((error, _request, response, next) => {
     return next(error);
   }
 
-  const status = error.statusCode || 400;
+  const status = error.getStatus() || 400;
   response.status(status).json({
     success: false,
     status: 'error',
-    message: error.message ?? 'Custom error sample.',
-    status,
+    message: error.getMessage() ?? 'Custom error sample.',
     errorType: ErrorType[error.errorType],
     details: error.details ?? '',
   });

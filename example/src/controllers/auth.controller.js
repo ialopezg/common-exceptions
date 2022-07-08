@@ -1,4 +1,4 @@
-const { Module } = require('module');
+const { InternalServerErrorException } = require('custom-error-service');
 
 const login = async (req, res = response) => {
   try {
@@ -30,7 +30,7 @@ const login = async (req, res = response) => {
     //     });
   } catch (error) {
     console.log(error);
-    throw new InternalServerError();
+    throw new InternalServerErrorException();
   }
 };
 
