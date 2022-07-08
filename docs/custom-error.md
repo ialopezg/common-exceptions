@@ -17,6 +17,7 @@ The `Custom Error` means that the server could not resolve the request, current 
 ```javascript
 const express = require('express');
 const app = express();
+const { HttpStatus } = require('custom-error-service');
 
 app.get('/custom-error', (request, response) => {
   try {
@@ -31,24 +32,23 @@ app.use((error, request, response, next) => {
     return next(error);
   }
 
-  const status = error.statusCode || 500;
+  const status = error.status || 500;
   const message =
     error.message || "It's not you. It's us. We are having some problems.";
-  const detail = error.detail || '';
+  const details = error.details || '';
 
   response.status(status).json({
     success: false,
-    status: 'error',
-    code: status,
+    sstatus,
     message,
-    detail,
+    details,
   });
 });
 
 // Not found middleware. Declared after generic error
 // middleware. This will allow use our custom middleware.
 app.use((request, response, next) => {
-  response.status(404).send('Resource not found');
+  response.status(Httpstatus.NOT_FOUND).send('Resource not found');
 });
 ```
 

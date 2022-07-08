@@ -1,7 +1,18 @@
+sudo: false
 language: node_js
 node_js:
-  - 8
-os:
-  - osx
-  - linux
-  - windows
+  - 14
+branches:
+  only:
+    - main
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm update
+install:
+  - npm install
+script:
+  - npm test
+  - npm run build
+after_success: npm run coverage

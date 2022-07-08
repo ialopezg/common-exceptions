@@ -1,26 +1,41 @@
-###############################################
-# Business Management System - API (backend)
-###############################################
-
-### Jetbrain Software
-# IntelliJ IDEA
-.idea
-
-### Package Dependency Manager
-# NodeJS
-node_modules/
-
-# NPM Package
+# compiled output
 dist
 lib
+node_modules
 
-# Yarn
-yarn-error.log
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-### Mac OSX project files
+# OS
 .DS_Store
 
-!src/types.ts
+# Tests
+/coverage
+/.nyc_output
 
-### Generated versions
-versions/
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Local data
+.env
+.env.development
+.env.test

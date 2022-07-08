@@ -40,11 +40,10 @@ export abstract class CustomError extends HttpException {
   constructor(
     status: HttpStatus,
     message: string,
-    details?: any,
     options?: ExceptionOptions,
   ) {
     super(
-      (message = 'Custom Error (Bad Request)'),
+      message || 'Custom Error (Bad Request)',
       status || HttpStatus.BAD_REQUEST,
     );
 
