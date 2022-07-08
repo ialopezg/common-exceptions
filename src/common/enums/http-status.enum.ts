@@ -318,6 +318,11 @@ export enum HttpStatus {
   FAILED_DEPENDENCY = 424,
 
   /**
+   * The server is unwilling to risk processing a request that might be replayed.
+   */
+  TOO_EARLY = 425,
+
+  /**
    * The client should switch to a different protocol such as TLS/1.0, given in the Upgrade header field.
    */
   UPGRADE_REQUIRED = 426,

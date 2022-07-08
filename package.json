@@ -20,7 +20,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "echo Using TypeScript && rollup -c",
+    "build": "echo Using TypeScript && tsc -p tsconfig.prod.json",
     "copy": "copyfiles package.json LICENSE README.md CHANGELOG.MD lib",
     "lint": "eslint 'src/**/*.ts' --ignore-path .gitignore",
     "lint:fix": "npm run lint --fix",

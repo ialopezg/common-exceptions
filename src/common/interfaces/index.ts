@@ -1,2 +1,2 @@
-export * from './custom-error-detail.interface';
-export * from './custom_error.interface';
+export * from './error-detail.interface';
+export * from './error.interface';

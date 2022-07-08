@@ -10,14 +10,14 @@ const swaggerUi = require('swagger-ui-express');
 
 // Custom error
 const {
-  BadRequest,
-  BadGateway,
-  Conflict,
+  BadRequestException,
+  BadGatewayException,
+  ConflictException,
   CustomError,
-  CustomErrorType,
-  Forbidden,
-  MethodNotAllowed,
-  NotFound,
+  ErrorType,
+  ForbiddenException,
+  MethodNotAllowedException,
+  NotFoundException,
 } = require('custom-error-service');
 const functions = require('./routes');
 
@@ -47,27 +47,27 @@ app.get('/custom-error', () => {
 });
 
 app.get('/bad-request', () => {
-  throw new BadRequest();
+  throw new BadRequestException();
 });
 
 app.get('/conflict', () => {
-  throw new Conflict();
+  throw new ConflictException();
 });
 
 app.get('/not-found', () => {
-  throw new NotFound();
+  throw new NotFoundException();
 });
 
 app.get('/bad-gateway', () => {
-  throw new BadGateway();
+  throw new BadGatewayException();
 });
 
 app.get('/forbidden', () => {
-  throw new Forbidden();
+  throw new ForbiddenException();
 });
 
 app.get('/method-not-allowed', () => {
-  throw new MethodNotAllowed();
+  throw new MethodNotAllowedException();
 });
 
 routes(app);
@@ -91,9 +91,8 @@ app.use((error, _request, response, next) => {
     success: false,
     status: 'error',
     message: error.message ?? 'Custom error sample.',
-    errorCode: status,
-    errorName: error.name,
-    errorType: CustomErrorType[error.errorType],
+    status,
+    errorType: ErrorType[error.errorType],
     details: error.details ?? '',
   });
 });
