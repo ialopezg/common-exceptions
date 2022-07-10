@@ -92,10 +92,12 @@
       "ts-node/register"
     ],
     "reporter": [
+      "text",
       "text-summary",
       "html"
     ],
     "sourceMap": true,
-    "instrument": true
+    "instrument": true,
+    "check-coverage": true
   }
 }
