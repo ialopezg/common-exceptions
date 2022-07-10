@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error when the server is refusing to service the request because the request-target was longer than the server was willing to interpret.
+ * Represents an error when the server is refusing to service the request because the request-target was longer than the server was willing to interpret.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,12 +18,6 @@ export class UriTooLongException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(HttpStatus.URI_TOO_LONG, message || 'URI Too Long', options);
-
-    // Additional error detail
-    this.details = options || {
-      message:
-        'The server is refusing to service the request because the request-target was longer than the server was willing to interpret.',
-    };
+    super(HttpStatus.URI_TOO_LONG, message, options);
   }
 }

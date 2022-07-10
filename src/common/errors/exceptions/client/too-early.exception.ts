@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error when the server is unwilling to risk processing a request that might be replayed, which creates the potential for a replay attack.
+ * Represents an error when the server is unwilling to risk processing a request that might be replayed, which creates the potential for a replay attack.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,12 +18,6 @@ export class TooEarlyException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(HttpStatus.TOO_EARLY, message || 'Too Early', options);
-
-    // Additional error detail
-    this.details = options?.details || {
-      message:
-        'The server is unwilling to risk processing a request that might be replayed, which creates the potential for a replay attack.',
-    };
+    super(HttpStatus.TOO_EARLY, message, options);
   }
 }

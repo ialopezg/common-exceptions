@@ -1,5 +1,5 @@
-import { ErrorType, HttpStatus } from '../../../enums';
-import { ErrorDetailInterface, ExceptionOptions } from '../../../interfaces';
+import { HttpStatus } from '../../../enums';
+import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
@@ -18,14 +18,6 @@ export class NotExtendedException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(HttpStatus.NOT_EXTENDED, message || 'Not Extended', options);
-
-    // Error type
-    this.errorType = ErrorType.Server;
-    // Additional error details
-    this.details = options?.details || {
-      message:
-        'Further extensions are required for the server to be able to fulfil the request.',
-    };
+    super(HttpStatus.NOT_EXTENDED, message, options);
   }
 }

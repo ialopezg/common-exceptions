@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error when the origin server requires the request to be conditional.
+ * Represents an error when the origin server requires the request to be conditional.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,15 +18,6 @@ export class PreconditionRequiredException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(
-      HttpStatus.PRECONDITION_REQUIRED,
-      message || 'Precondition Required',
-      options,
-    );
-
-    // Additional error detail
-    this.details = options?.details || {
-      message: 'The origin server requires the request to be conditional.',
-    };
+    super(HttpStatus.PRECONDITION_REQUIRED, message, options);
   }
 }

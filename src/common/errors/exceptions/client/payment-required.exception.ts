@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error when the request cannot be processed until the client makes a payment.
+ * Represents an error when the request cannot be processed until the client makes a payment.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,12 +18,6 @@ export class PaymentRequiredException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(HttpStatus.PAYMENT_REQUIRED, message || 'Payment Required', options);
-
-    // Additional error details
-    this.details = options?.details || {
-      message:
-        'The request cannot be processed until the client makes a payment.',
-    };
+    super(HttpStatus.PAYMENT_REQUIRED, message, options);
   }
 }

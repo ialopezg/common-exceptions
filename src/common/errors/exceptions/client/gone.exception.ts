@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error when the target resource has been deleted and the condition seems to be permanent.
+ * Represents an error when the target resource has been deleted and the condition seems to be permanent.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,12 +18,6 @@ export class GoneException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(HttpStatus.GONE, message || 'Gone', options);
-
-    // Additional error detail
-    this.details = options?.details || {
-      message:
-        'The target resource has been deleted and the condition seems to be permanent.',
-    };
+    super(HttpStatus.GONE, message, options);
   }
 }

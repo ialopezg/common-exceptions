@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error while the request was well-formed, the server was unable to follow it, due to semantic errors.
+ * Represents an error while the request was well-formed, the server was unable to follow it, due to semantic errors.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,16 +18,6 @@ export class UnprocessableEntityException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(
-      HttpStatus.UNPROCESSABLE_ENTITY,
-      message || 'Unprocessable Entity',
-      options,
-    );
-
-    // Additional error detail
-    this.details = options?.details || {
-      message:
-        'While the request was well-formed, the server was unable to follow it, due to semantic errors.',
-    };
+    super(HttpStatus.UNPROCESSABLE_ENTITY, message, options);
   }
 }

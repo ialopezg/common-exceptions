@@ -3,7 +3,7 @@ import { ExceptionOptions } from '../../../interfaces';
 import { CustomError } from '../../custom-error';
 
 /**
- * Represents a error when the resource that is being accessed is locked.
+ * Represents an error when the resource that is being accessed is locked.
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
@@ -18,11 +18,6 @@ export class LockedException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(HttpStatus.LOCKED, message || 'Locked', options);
-
-    // Additional error detail
-    this.details = options?.details || {
-      message: 'The resource that is being accessed is locked.',
-    };
+    super(HttpStatus.LOCKED, message, options);
   }
 }

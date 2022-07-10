@@ -1,16 +1,20 @@
 import { ErrorType, HttpStatus } from '../enums';
 import { ExceptionOptions } from '../interfaces';
 import { HttpException } from './exceptions/http.exception';
+import {
+  getHttpStatusDefaultTitle,
+  getHttpStatusDefaultMessage,
+} from '../utils';
 
 /**
- * Base class to representa a custom error than handling not recognized errors.
+ * Base class that represents a custom error than handling not recognized errors.
  * * @class
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
  * @extends {CustomError}
  * @license MIT
  */
-export abstract class CustomError extends HttpException {
+export class CustomError extends HttpException {
   /**
    *  Error details.
    */
@@ -19,7 +23,7 @@ export abstract class CustomError extends HttpException {
   /**
    * Error type.
    */
-  public errorType: ErrorType;
+  public readonly errorType: ErrorType;
 
   /**
    * Whether this error could be displayed to the user.
@@ -35,32 +39,40 @@ export abstract class CustomError extends HttpException {
    * Creates a Conflict error.
    * @constructor
    *
-   * @param {ExceptionOptions} error Optional. Error details.
+   * @param status HTTP Status code.
+   * @param message Error message.
+   * @param options Additional error details.
    */
   constructor(
-    status: HttpStatus,
-    message: string,
+    status?: HttpStatus,
+    message?: string,
     options?: ExceptionOptions,
   ) {
+    status = status ?? HttpStatus.BAD_REQUEST;
     super(
-      message || 'Custom Error (Bad Request)',
-      status || HttpStatus.BAD_REQUEST,
+      status,
+      message ?? `Custom Error (${getHttpStatusDefaultTitle(status)})`,
     );
 
     // Error name
     this.name = this.constructor.name;
 
     // Whether if error will be displayed in production mode
-    this.isPublic = options?.isPublic || true;
+    this.isPublic = options?.isPublic ?? true;
     // Exception or error type
-    this.errorType = options?.errorType || ErrorType.Client;
+    this.errorType =
+      this.status >= 400 && this.status < 500
+        ? ErrorType.Client
+        : ErrorType.Server;
     // Whether error will stop the application
     this.isOperational =
-      options?.isOperational || this.errorType === ErrorType.Client;
+      options?.isOperational ?? this.errorType === ErrorType.Client;
     // Additional error detail
-    this.details = options?.details || '';
+    this.details = options?.details ?? {
+      message: getHttpStatusDefaultMessage(this.status),
+    };
     // Error stack
-    this.stack = options?.stack || '';
+    this.stack = options?.stack ?? '';
   }
 
   /**

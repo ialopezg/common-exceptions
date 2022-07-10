@@ -18,15 +18,6 @@ export class ProxyAuthenticationRequiredException extends CustomError {
    * @param options Additional message details.
    */
   constructor(message?: string, options?: ExceptionOptions) {
-    super(
-      HttpStatus.PROXY_AUTHENTICATION_REQUIRED,
-      message || 'Proxy Authentication Required',
-      options,
-    );
-
-    // Additional error details
-    this.details = options?.details || {
-      message: 'The client must first be authenticated by a proxy.',
-    };
+    super(HttpStatus.PROXY_AUTHENTICATION_REQUIRED, message, options);
   }
 }

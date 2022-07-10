@@ -1,8 +1,9 @@
 import { ExceptionOptions } from '../../../interfaces';
 import { NotFoundException } from './not-found.exception';
+import { getHttpStatusDefaultMessage } from '../../../utils';
 
 /**
- * Represents a error when the requested entity could not be localized.
+ * Represents an error when the requested entity could not be localized.
  * @class
  *
  * @author Isidro A. Lopez G. <me@ialopezg.com> (https://ialopezg.com)
@@ -14,6 +15,7 @@ export class RecordNotFoundException extends NotFoundException {
    * Creates a RecordNotFound error.
    * @constructor
    *
+   * @param id Record not found.
    * @param message Message to be displayed.
    * @param options Additional message details.
    */
@@ -22,11 +24,10 @@ export class RecordNotFoundException extends NotFoundException {
     message?: string,
     options?: ExceptionOptions,
   ) {
-    super(message || 'Record Not Found');
+    super(message, options);
 
-    // Additional error detail
-    this.details = options || {
-      message: `Entity with id: ${id} couldn't be found.`,
+    this.details = options?.details ?? {
+      message: getHttpStatusDefaultMessage(4041).replace('%s', id.toString()),
     };
   }
 }
