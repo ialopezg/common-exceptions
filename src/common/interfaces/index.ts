@@ -1,2 +1,2 @@
 export * from './error-detail.interface';
-export * from './error.interface';
+export * from './exception-options.interface';
