@@ -4,23 +4,47 @@ The `422 Unprocessable Entity` status code means that while the request was well
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { UnprocessableEntity } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { UnprocessableEntityException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/unprocessable-entity', (request, response) => {
-  // Throw a new UnprocessableEntity error with default parameters
-  throw new UnprocessableEntity();
+app.get('/', (request, response) => {
+  try {
+    throw new UnprocessableEntityException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { UnprocessableEntityException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new UnprocessableEntityException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

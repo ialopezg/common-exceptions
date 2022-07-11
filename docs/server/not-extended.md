@@ -4,23 +4,47 @@ The `510 Not Extended` response code means that further extensions are required 
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { NotExtended } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { NotExtendedException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/not-extended', (request, response) => {
-  // Throw a new NotExtended error with default parameters
-  throw new NotExtended();
+app.get('/', (request, response) => {
+  try {
+    throw new NotExtendedException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { NotExtendedException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new NotExtendedException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

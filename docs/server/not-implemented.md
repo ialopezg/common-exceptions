@@ -4,23 +4,47 @@ The `501 Not Implemented` response code means that the request can not be handle
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { NotImplemented } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { NotImplementedException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/not-implemented', (request, response) => {
-  // Throw a new InternalServerError error with default parameters
-  throw new NotImplemented();
+app.get('/', (request, response) => {
+  try {
+    throw new NotImplementedException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { NotImplementedException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new NotImplementedException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

@@ -4,23 +4,47 @@ The `451 Unavailable For Legal Reasons` response code means that the user has re
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { UnavailableForLegalReasons } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { UnavailableForLegalReasonsException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/unavailable-for-legal-reasons', (request, response) => {
-  // Throw a new UnavailableForLegalReasons error with default parameters
-  throw new UnavailableForLegalReasons();
+app.get('/', (request, response) => {
+  try {
+    throw new UnavailableForLegalReasonsException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { UnavailableForLegalReasonsException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new UnavailableForLegalReasonsException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

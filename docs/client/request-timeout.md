@@ -4,23 +4,47 @@ The `408 Request Timeout` status code means that the server did not receive a co
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { RequestTimeout } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { RequestTimeoutException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/request-imeout', (request, response) => {
-  // Throw a new RequestTimeout error with default parameters
-  throw new RequestTimeout();
+app.get('/', (request, response) => {
+  try {
+    throw new RequestTimeoutException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { RequestTimeoutException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new RequestTimeoutException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

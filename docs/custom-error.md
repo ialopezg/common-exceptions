@@ -4,13 +4,12 @@ The `Custom Error` means that the server could not resolve the request, current 
 
 ## Parameters
 
-- `statusCode` [optional]: Default `400`. HTTP status code.
-- `message` [optional]: The representative message for this error.
-- `errorType` [optional]: Default `Client`. Error type, possible value Client and Server.
-- `isPublic` [optional]: Default `true`. Whether if error will be displayed to user.
-- `isOperational` [optional]: Default `true`. Whether is current error must close the app.
-- `details` [optional]: A detailed message of this error.
-- `stack` [optional]: Error stack.
+
+| Field     | Type                                                             | Description                                | Default     |
+|-----------|------------------------------------------------------------------|--------------------------------------------|-------------|
+| `status`  | [HttpStatus](../enums/http-status.enum.md)                       | HTTP status code.                          | BAD_REQUEST |
+| `message` | string                                                           | The representative message for this error. | empty       |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |             |
 
 ## Example
 
@@ -32,16 +31,12 @@ app.use((error, request, response, next) => {
     return next(error);
   }
 
-  const status = error.status || 500;
-  const message =
-    error.message || "It's not you. It's us. We are having some problems.";
-  const details = error.details || '';
-
-  response.status(status).json({
+  response.status(error.getStatus()).json({
     success: false,
-    sstatus,
-    message,
-    details,
+    status: 'error',
+    message: error.getMessage(),
+    errorType: ErrorType[error.errorType],
+    details: error.details,
   });
 });
 

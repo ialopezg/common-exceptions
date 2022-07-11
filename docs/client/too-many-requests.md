@@ -4,23 +4,47 @@ The `429 Too Many Requests` response code means that in the given time, the user
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { TooManyRequests } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { TooManyRequestsException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/too-many-requests', (request, response) => {
-  // Throw a new TooManyRequests error with default parameters
-  throw new TooManyRequests();
+app.get('/', (request, response) => {
+  try {
+    throw new TooManyRequestsException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { TooManyRequestsException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new TooManyRequestsException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

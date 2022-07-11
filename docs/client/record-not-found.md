@@ -7,23 +7,49 @@ When looking at things SEO-wise the 404 Not Found status code pages with a high 
 ## Parameters
 
 - `id`: Entity or identifier requested.
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
 
-## Example
+| Field     | Type                                                             | Description                                 | Default |
+|-----------|------------------------------------------------------------------|---------------------------------------------|---------|
+| `id`      | number, string                                                   | `Required`. Entity or identifier requested. |         |
+| `message` | string                                                           | The representative message for this error.  | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error            |         |
 
-```javascript
-import { RecordNotFound } from 'custom-error-service';
+## Examples
+
+### With required arguments
+
+```typescript
+import { RecordNotFoundException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/record-not-found', (request, response) => {
-  // Throw a new RecordNotFound error with default parameters
-  throw new RecordNotFound();
+app.get('/', (request, response) => {
+  try {
+    throw new RecordNotFoundException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With optional arguments
+
+```typescript
+import { RecordNotFoundException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new RecordNotFoundException(10001, 'Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

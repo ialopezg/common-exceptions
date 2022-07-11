@@ -4,20 +4,44 @@ The `405 Method Not Allowed` status code means that while the server knows the r
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { MethodNotAllowed } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { MethodNotAllowedException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/method-not-allowed', (request, response) => {
-  // Throw a new MethodNotAllowed error with default parameters
-  throw new MethodNotAllowed();
+app.get('/', (request, response) => {
+  try {
+    throw new MethodNotAllowedException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { MethodNotAllowedException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new MethodNotAllowedException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 

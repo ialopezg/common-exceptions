@@ -4,23 +4,47 @@ The `413 Payload Too Large` status code means the server refuses to process the 
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { PayloadToLarge } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { PayloadTooLargeException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/payload-too-large', (request, response) => {
-  // Throw a new PayloadToLarge error with default parameters
-  throw new PayloadToLarge();
+app.get('/', (request, response) => {
+  try {
+    throw new PayloadTooLargeException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { PayloadTooLargeException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new PayloadTooLargeException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

@@ -1,7 +1,7 @@
-import { ErrorType, HttpStatus } from '../enums';
+import { ErrorType } from '../enums';
 
 /**
- * Error object definition.
+ * Exception Options.
  */
 export interface ExceptionOptions {
   /**
@@ -20,8 +20,8 @@ export interface ExceptionOptions {
   errorType?: ErrorType;
 
   /**
-  * Additional error details.
-  */
+   * Additional error details.
+   */
   details?: { [key: string]: any } | string;
 
   /**

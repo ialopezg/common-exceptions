@@ -4,23 +4,47 @@ The `406 Not Acceptable` status code is sent by the server when it does not find
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { NotAcceptable } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { NotAcceptableException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/not-acceptable', (request, response) => {
-  // Throw a new NotAcceptable error with default parameters
-  throw new NotAcceptable();
+app.get('/', (request, response) => {
+  try {
+    throw new NotAcceptableException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { NotAcceptableException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new NotAcceptableException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

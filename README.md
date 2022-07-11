@@ -21,7 +21,7 @@
 
 ## Description
 
-[Custom Error Service](https://github.com/ialopezg/custom-error-services) is a toolset that helps you to develop and debug modern applications. This tool is made to be used in [Node.js](https://nodejs.org), which allows you to easily build efficient, scalable applications. It uses modern JavaScript, is built with [TypeScript](https://typescriptlang.org) and bring best JavaScript concepts.
+[Custom Error Service](https://github.com/ialopezg/custom-error-services) is a toolset that helps you to debug modern applications. This tool is made to be used in [Node.js](https://nodejs.org), which allows you to easily handle application errors. It uses modern JavaScript, is built with [TypeScript](https://typescriptlang.org) and give the best JavaScript concepts.
 
 ## Installation
 
@@ -41,15 +41,7 @@
 
 ## Features
 
-- Compatible with both TypeScript and ES6 (Recommend to use [TypeScript](https://www.typescriptlang.org/)
-
-## Future
-
-Custom Error Service is very much still a work in progress. There is still some things to finish:
-
-- Test utilities
-- Helpers
-- and more...
+- Compatible with both TypeScript and ES6 (Recommend to use [TypeScript](https://www.typescriptlang.org/).
 
 ## People
 

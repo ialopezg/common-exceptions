@@ -4,23 +4,47 @@ The `505 HTTP Version Not Supported` response code means that the version of HTT
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { HTTPVersionNotSupported } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { HttpVersionNotSupportedException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/http-version-not-supported', (request, response) => {
-  // Throw a new HTTPVersionNotSupported error with default parameters
-  throw new HTTPVersionNotSupported();
+app.get('/', (request, response) => {
+  try {
+    throw new HttpVersionNotSupportedException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { HttpVersionNotSupportedException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new HttpVersionNotSupportedException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

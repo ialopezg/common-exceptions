@@ -4,23 +4,47 @@ The `511 Network Authentication Required` response code indicates that the clien
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { NetworkAuthenticationRequired } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { NetworkAuthenticationRequiredException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/network-authentication-required', (request, response) => {
-  // Throw a new NetworkAuthenticationRequired error with default parameters
-  throw new NetworkAuthenticationRequired();
+app.get('/', (request, response) => {
+  try {
+    throw new NetworkAuthenticationRequiredException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { NetworkAuthenticationRequiredException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new NetworkAuthenticationRequiredException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

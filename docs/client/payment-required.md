@@ -4,23 +4,47 @@ The `402 Payment Required` status code is a response reserved for future use. It
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { PaymentRequired } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { PaymentRequiredException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/payment-required', (request, response) => {
-  // Throw a new PaymentRequired error with default parameters
-  throw new PaymentRequired();
+app.get('/', (request, response) => {
+  try {
+    throw new PaymentRequiredException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { PaymentRequiredException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new PaymentRequiredException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

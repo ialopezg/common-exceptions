@@ -6,23 +6,47 @@ When looking at things SEO-wise the 410 Gone status code is a more permanent ver
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { Gone } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { GoneException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/gone', (request, response) => {
-  // Throw a new Gone error with default parameters
-  throw new Gone();
+app.get('/', (request, response) => {
+  try {
+    throw new GoneException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { GoneException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new GoneException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

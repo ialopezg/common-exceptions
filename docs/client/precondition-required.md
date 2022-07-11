@@ -4,23 +4,47 @@ The `428 Precondition Required` status code means that the origin server require
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { PreconditionRequired } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { PreconditionRequiredException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/precondition-required', (request, response) => {
-  // Throw a new PreconditionRequired error with default parameters
-  throw new PreconditionRequired();
+app.get('/', (request, response) => {
+  try {
+    throw new PreconditionRequiredException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { PreconditionRequiredException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new PreconditionRequiredException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

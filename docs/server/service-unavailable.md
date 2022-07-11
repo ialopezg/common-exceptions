@@ -6,23 +6,47 @@ When looking at things SEO-wise the 503 Service Unavailable status code means th
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { ServiceUnavailable } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { ServiceUnavailableException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/service-unavailable', (request, response) => {
-  // Throw a new ServiceUnavailable error with default parameters
-  throw new ServiceUnavailable();
+app.get('/', (request, response) => {
+  try {
+    throw new ServiceUnavailableException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { ServiceUnavailableException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new ServiceUnavailableException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

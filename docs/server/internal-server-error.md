@@ -6,23 +6,47 @@ When looking at things SEO-wise the 500 Internal Server Error indicates a proble
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { InternalServerError } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { InternalServerErrorException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/internal-server-error', (request, response) => {
-  // Throw a new InternalServerError error with default parameters
-  throw new InternalServerError();
+app.get('/', (request, response) => {
+  try {
+    throw new InternalServerErrorException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { InternalServerErrorException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new InternalServerErrorException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)

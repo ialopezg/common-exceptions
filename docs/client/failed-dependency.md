@@ -4,23 +4,47 @@ The `424 Failed Dependency` status code means that the request failed due to the
 
 ## Parameters
 
-- `message` [optional]: The representative message for this error.
-- `details` [optional]: A detailed message of this error.
+| Field     | Type                                                             | Description                                | Default |
+|-----------|------------------------------------------------------------------|--------------------------------------------|---------|
+| `message` | string                                                           | The representative message for this error. | empty   |
+| `options` | [ExceptionOptions](../interfaces/exception-options.interface.md) | A detailed message of this error           |         |
 
-## Example
+## Examples
 
-```javascript
-import { FailedDependency } from 'custom-error-service';
+### Without arguments
+
+```typescript
+import { FailedDependencyException } from 'custom-error-service';
 import express from 'express';
 
 const app = express();
 
-app.get('/failed-dependency', (request, response) => {
-  // Throw a new FailedDependency error with default parameters
-  throw new FailedDependency();
+app.get('/', (request, response) => {
+  try {
+    throw new FailedDependencyException();
+  } catch (error) {
+    handleError(error);
+  }
+});
+```
+
+### With arguments
+
+```typescript
+import { FailedDependencyException } from 'custom-error-service';
+import express from 'express';
+
+const app = express();
+
+app.get('/', (request, response) => {
+  try {
+    throw new FailedDependencyException('Test Error');
+  } catch (error) {
+    handleError(error);
+  }
 });
 ```
 
 ---
 
-&copy; Copyright 2019-present - Customer Error Service by [Isidro A. López G.](https://ialopezg.com/)
+&copy; Copyright 2019-present - Customer Error Service by [Isidro A. Lopez G.](https://ialopezg.com/)
