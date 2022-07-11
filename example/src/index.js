@@ -86,13 +86,12 @@ app.use((error, _request, response, next) => {
     return next(error);
   }
 
-  const status = error.getStatus() || 400;
-  response.status(status).json({
+  response.status(error.getStatus()).json({
     success: false,
     status: 'error',
-    message: error.getMessage() ?? 'Custom error sample.',
+    message: error.getMessage(),
     errorType: ErrorType[error.errorType],
-    details: error.details ?? '',
+    details: error.details,
   });
 });
 
