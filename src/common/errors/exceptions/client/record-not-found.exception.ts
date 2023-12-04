@@ -1,6 +1,7 @@
 import { ExceptionOptions } from '../../../interfaces';
 import { NotFoundException } from './not-found.exception';
 import { getHttpStatusDefaultMessage } from '../../../utils';
+import { HttpStatus } from '../../../enums';
 
 /**
  * Represents an error when the requested entity could not be localized.
@@ -27,7 +28,10 @@ export class RecordNotFoundException extends NotFoundException {
     super(message, options);
 
     this.details = options?.details ?? {
-      message: getHttpStatusDefaultMessage(4041).replace('%s', id.toString()),
+      message: getHttpStatusDefaultMessage(HttpStatus.NOT_FOUND).replace(
+        '%s',
+        id.toString(),
+      ),
     };
   }
 }

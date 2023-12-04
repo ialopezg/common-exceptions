@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ialopezg/custom-error-service/compare/v1.0.0...v1.1.0) (2023-11-30)
+
+
+### Bug Fixes
+
+* record not found HTTP Status Code ([03d2531](https://github.com/ialopezg/custom-error-service/commit/03d2531bef50a078ec7aa1223906f91b1a227733))
+
+## [1.0.0](https://github.com/ialopezg/custom-error-service/compare/v0.4.0...v1.0.0) (2023-11-30)
+
+
+### Features
+
+* package renamed ([5dec531](https://github.com/ialopezg/custom-error-service/commit/5dec531f88bc864d8bbc12fdb60d4792bc531323))
+
 ## [0.4.0](https://github.com/ialopezg/custom-error-service/compare/v0.3.1...v0.4.0) (2022-07-11)
 
 
