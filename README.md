@@ -1,8 +1,8 @@
 <div align="center">
-  <h1>Custom Error Service</h1>
+  <h1>Common Exceptions</h1>
 </div>
 <div align="center">
-  <strong>Custom tools for NodeJS</strong> :rocket:
+  <strong>Custom tools for Node.js</strong> :rocket:
 </div>
 <br />
 
@@ -21,17 +21,17 @@
 
 ## Description
 
-[Custom Error Service](https://github.com/ialopezg/custom-error-services) is a toolset that helps you to debug modern applications. This tool is made to be used in [Node.js](https://nodejs.org), which allows you to easily handle application errors. It uses modern JavaScript, is built with [TypeScript](https://typescriptlang.org) and give the best JavaScript concepts.
+[Common Exceptions](https://github.com/ialopezg/custom-error-services) is a toolset that helps you to debug modern applications. This tool is made to be used in [Node.js](https://nodejs.org), which allows you to easily handle application errors. It uses modern JavaScript, is built with [TypeScript](https://typescriptlang.org) and give the best JavaScript concepts.
 
 ## Installation
 
 - NPM
   ```bash
-  npm install --save custom-error-service
+  npm install --save @ialopezg/common-exceptions
   ```
 - Yarn
   ```bash
-  yarn add custom-error-service
+  yarn add common-exceptions
   ```
 
 
